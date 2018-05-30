@@ -3,7 +3,7 @@
 {{bock.super}}
 <section class="header">
     <div class="container-fluid">
-        <!-- <img src="media/profilepic/Logo-01.png" alt="logo"> -->
+        <img src="media/profilepic/Logo-01.png" alt="logo" style="height:200px;width:auto">
         <h3 style="text-align: center">JAMHURI EVENTS</h3>
     </div>
 </section>
@@ -14,20 +14,24 @@
 </section>
 <section class="events">
     <div class="container">
+        <div class="row">
         {% for events in events %}
-        <div class="card-deck">
-            <div class="card">
-                <img class="card-img-top" src="{{events.poster.url}}" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">{{events.name|upper}}</h5>
-                    <p class="card-text">{{events.about}}</p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">{{events.eventtime}}</small>
+        <div class="col-md-4">
+            <div class="card-deck">
+                <div class="card">
+                    <img class="card-img-top" src="{{events.poster.url}}" alt="Card image cap" style="height:291px; width:auto">
+                    <div class="card-body">
+                        <h5 class="card-title">{{events.name|upper}}</h5>
+                        <p class="card-text">{{events.about}}</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">{{events.eventtime}}</small>
+                    </div>
                 </div>
             </div>
         </div>
         {% endfor %}
+        </div>
     </div>
 </section>
 
