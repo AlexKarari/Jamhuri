@@ -34,9 +34,15 @@ class Releases(models.Model):
     album_image = models.ImageField(upload_to='album/')
     producer = models.CharField(max_length=100)
     releaseDate = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.album_title
 
 class Merchandise(models.Model):
     item_name = models.CharField(max_length=100)
     item_description = models.CharField(max_length=100)
     item_image = models.ImageField(upload_to='merch/')
     item_price = models.CharField(max_length=100)
+    
+    def __str__(self):
+        return self.item_name
