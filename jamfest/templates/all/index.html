@@ -1,5 +1,35 @@
 {%extends 'all/base.html'%} 
 {% block content %} 
 {{bock.super}}
+<section class="header">
+    <div class="container-fluid">
+        <!-- <img src="media/profilepic/Logo-01.png" alt="logo"> -->
+        <h3 style="text-align: center">JAMHURI EVENTS</h3>
+    </div>
+</section>
+<section class="carousel">
+    <div class="container-fluid">
+
+    </div>
+</section>
+<section class="events">
+    <div class="container">
+        {% for events in events %}
+        <div class="card-deck">
+            <div class="card">
+                <img class="card-img-top" src="{{events.poster.url}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{events.name|upper}}</h5>
+                    <p class="card-text">{{events.about}}</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">{{events.eventtime}}</small>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
 
 {% endblock %}
