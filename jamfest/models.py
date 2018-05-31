@@ -61,4 +61,4 @@ class Services(models.Model):
     image = models.ImageField(upload_to='services/')
 
     def __str__(self):
-        return self.testimonial
+        return self.name

@@ -45,7 +45,7 @@
             <div class="col-md-4">
                 <div class="card-deck">
                     <div class="card">
-                        <img class="card-img-top" src="{{news.image.url}}" alt="Card image cap" style="height:291px; width:auto">
+                        <img class="card-img-top" src="{{news.image.url}}" alt="News images" style="height:291px; width:auto">
                         <div class="card-body">
                             <h5 class="card-title" style="text-align: center; text-indent: inherit">{{news.title|upper}}</h5>
                             <p class="card-text">{{news.post|truncatewords:50}}</p>
@@ -53,6 +53,23 @@
                         <div class="card-footer">
                             <small class="text-muted">POSTED ON: {{news.postDate}}</small>
                         </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<section class="services">
+    <div class="container">
+        <hr>
+        <h3 style="text-align: center">Our Services</h3>
+        <div class="row">
+            {% for service in service %}
+            <div class="col-md-4">
+                <div class="card-deck">
+                    <div class="card">
+                        <img class="card-img-top img-fluid rounded" src="{{service.image.url}}" alt="News images" alt="Our services" style="height:291px; width:auto">
                     </div>
                 </div>
             </div>
