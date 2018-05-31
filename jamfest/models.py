@@ -46,3 +46,12 @@ class Merchandise(models.Model):
     
     def __str__(self):
         return self.item_name
+
+
+class Testimonials(models.Model):
+    testimonial = models.CharField(max_length=5000)
+    author = models.CharField(max_length=100)
+
+
+    def __str__(self):
+        return self.testimonial

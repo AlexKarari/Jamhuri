@@ -6,10 +6,12 @@ from .models import Artist, Events, News, Releases, Merchandise
 
 def index(request):
     '''
-    View function that displays the homepage and all its contents 
+    View function that displays the homepage and all its contents.
+    Most content here acts as links to the main content.
     '''
     events = Events.objects.all()
-    return render(request, 'all/index.html', {"events": events})
+    news = News.objects.all()
+    return render(request, 'all/index.html', {"events": events, "news": news})
 
 def events(request):
         '''
