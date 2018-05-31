@@ -79,6 +79,30 @@
         </div>
     </div>
 </section>
+<section class="merchandise">
+    <div class="container">
+        <hr>
+        <h3 style="text-align: center" style="text-align: center">Featured Merchandises</h3>
+        <div class="row">
+            {% for merchs in merchs %}
+            <div class="col-md-4">
+                <div class="card-deck">
+                    <div class="card">
+                        <img class="card-img-top" src="{{merchs.item_image.url}}" alt="Card image cap" style="height:291px; width:auto">
+                        <div class="card-body">
+                            <h5 class="card-title">{{merchs.item_name|upper}}</h5>
+                            <p class="card-text">{{merchs.item_description}}</p>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">{{merchs.item_price}}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
 <section class="testimonials">
     <div class="container">
         <hr>

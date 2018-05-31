@@ -11,7 +11,9 @@
         <h1 class="text-center">{{news.title}}</h1>
     </div>
     <div class="row">
-        <p>{{news.post}} </p>       
+        {% autoescape on %} 
+        {{news.post| safe}} 
+        {% endautoescape %}
     </div>
 
     <div class="row">

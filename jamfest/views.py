@@ -13,7 +13,8 @@ def index(request):
     news = News.objects.all()
     testimonials = Testimonials.objects.all()
     service = Services.objects.all()
-    return render(request, 'all/index.html', {"events": events, "news": news, "testimonials": testimonials, "service": service})
+    merchs = Merchandise.objects.all()
+    return render(request, 'all/index.html', {"events": events, "news": news, "testimonials": testimonials, "service": service, "merchs": merchs})
 
 
 def news(request, news_id):
