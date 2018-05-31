@@ -48,13 +48,27 @@
                         <img class="card-img-top" src="{{news.image.url}}" alt="Card image cap" style="height:291px; width:auto">
                         <div class="card-body">
                             <h5 class="card-title" style="text-align: center; text-indent: inherit">{{news.title|upper}}</h5>
-                            <p class="card-text">{{news.post}}</p>
+                            <p class="card-text">{{news.post|truncatewords:50}}</p>
                         </div>
                         <div class="card-footer">
-                            <small class="text-muted">POSTED ON: {{news.postDate|truncatewords:50}}</small>
+                            <small class="text-muted">POSTED ON: {{news.postDate}}</small>
                         </div>
                     </div>
                 </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<section class="testimonials">
+    <div class="container">
+        <hr>
+        <h3 style="text-align: center">Testimonials</h3>
+        <div class="row">
+            {% for testimonials in testimonials %}
+            <div class="col-md-12">
+                <h5>{{testimonials.testimonial}}</h5>
+                <h6>{{testimonials.author}}</h6>
             </div>
             {% endfor %}
         </div>

@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Artist, Events, News, Releases, Merchandise
+from .models import Artist, Events, News, Releases, Merchandise, Testimonials
 
 # Create your views here.
 
@@ -11,7 +11,8 @@ def index(request):
     '''
     events = Events.objects.all()
     news = News.objects.all()
-    return render(request, 'all/index.html', {"events": events, "news": news})
+    testimonials = Testimonials.objects.all()
+    return render(request, 'all/index.html', {"events": events, "news": news, "testimonials": testimonials})
 
 def events(request):
         '''
