@@ -1,0 +1,23 @@
+{%extends 'all/base.html'%} 
+{% block content %}
+
+<div class="container">
+
+    <div class="row">
+        <img src="{{news.image.url}}" class="img-fluid" alt="News Image">
+    </div>
+
+    <div class="row">
+        <h1 class="text-center">{{news.title}}</h1>
+    </div>
+    <div class="row">
+        <p>{{news.post}} </p>       
+    </div>
+
+    <div class="row">
+        <p>Posted {{news.postDate|timesince}} ago</p>
+    </div>
+
+</div>
+
+{% endblock %}

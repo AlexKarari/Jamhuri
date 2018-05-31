@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import Artist, Events, News, Releases, Merchandise, Testimonials, Services
+from django.http import HttpResponse, Http404, HttpResponseRedirect
 
 # Create your views here.
-
 
 def index(request):
     '''
@@ -15,8 +15,10 @@ def index(request):
     service = Services.objects.all()
     return render(request, 'all/index.html', {"events": events, "news": news, "testimonials": testimonials, "service": service})
 
-def events(request):
-        '''
-        View function that gets all events being advertised
-        '''
-        return render(request, 'all/index.html')
+
+def news(request, news_id):
+    try:
+        news = News.objects.get(id=news_id)
+    except DoesNotExist:
+        raise Http404()
+    return render(request, "all/news.html", {"news": news})

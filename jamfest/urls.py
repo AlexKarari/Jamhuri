@@ -3,9 +3,11 @@ from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 
+
 urlpatterns = [
     url('^$', views.index, name='landingpage'),
-    url(r'^events/$', views.events, name='events'),
+    url(r'^news/(\d+)/$', views.news, name='news'),
+    
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,

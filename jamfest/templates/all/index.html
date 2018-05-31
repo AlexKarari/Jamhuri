@@ -47,8 +47,10 @@
                     <div class="card">
                         <img class="card-img-top" src="{{news.image.url}}" alt="News images" style="height:291px; width:auto">
                         <div class="card-body">
-                            <h5 class="card-title" style="text-align: center; text-indent: inherit">{{news.title|upper}}</h5>
-                            <p class="card-text">{{news.post|truncatewords:50}}</p>
+                            <h5 class="card-title" style="text-align: center; text-indent: inherit">
+                                <a href="{%url 'news' news.id %}">{{news.title|upper}}</a>
+                            </h5>
+                            <p class="card-text">{{news.post|truncatewords:30}}</p>
                         </div>
                         <div class="card-footer">
                             <small class="text-muted">POSTED ON: {{news.postDate}}</small>
@@ -91,4 +93,9 @@
         </div>
     </div>
 </section>
+<footer>
+    <div class="jumbotron" style="background-color: purple; background-size: inherit">
+
+    </div>
+</footer>
 {% endblock %}
