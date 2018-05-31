@@ -3,7 +3,7 @@
 {{bock.super}}
 <section class="header">
     <div class="container-fluid">
-        <img src="media/profilepic/Logo-01.png" alt="logo" style="height:200px;width:auto">
+        <img src="media/profilepic/Logo-01.png" class="img-fluid" alt="logo" style="height:200px;width:auto">
         <h3 style="text-align: center">JAMHURI EVENTS</h3>
     </div>
 </section>
@@ -21,7 +21,7 @@
         <div class="col-md-4">
             <div class="card-deck">
                 <div class="card">
-                    <img class="card-img-top" src="{{events.poster.url}}" alt="Card image cap" style="height:291px; width:auto">
+                    <img class="card-img-top img-fluid" src="{{events.poster.url}}" alt="Card image cap" style="height:291px; width:auto">
                     <div class="card-body">
                         <h5 class="card-title" >{{events.name|upper}}</h5>
                         <p class="card-text">{{events.about}}</p>
@@ -45,7 +45,7 @@
             <div class="col-md-4">
                 <div class="card-deck">
                     <div class="card">
-                        <img class="card-img-top" src="{{news.image.url}}" alt="News images" style="height:291px; width:auto">
+                        <img class="card-img-top img-fluid" src="{{news.image.url}}" alt="News images" style="height:291px; width:auto">
                         <div class="card-body">
                             <h5 class="card-title" style="text-align: center; text-indent: inherit">
                                 <a href="{%url 'news' news.id %}">{{news.title|upper}}</a>
@@ -88,7 +88,7 @@
             <div class="col-md-4">
                 <div class="card-deck">
                     <div class="card">
-                        <img class="card-img-top" src="{{merchs.item_image.url}}" alt="Card image cap" style="height:291px; width:auto">
+                        <img class="card-img-top img-fluid" src="{{merchs.item_image.url}}" alt="Card image cap" style="height:291px; width:auto">
                         <div class="card-body">
                             <h5 class="card-title">{{merchs.item_name|upper}}</h5>
                             <p class="card-text">{{merchs.item_description}}</p>
