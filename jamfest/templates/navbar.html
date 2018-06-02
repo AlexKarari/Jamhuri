@@ -1,5 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-<a class="navbar-brand" href="{% url 'landingpage' %}">JAMHURI EVENTS</a>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<a class="navbar-brand" href="{% url 'landingpage' %}">
+<img src="media/profilepic/Logo-01.png" width="150" height="100" class="d-inline-block align-top" alt="jamhuri logo"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -31,7 +33,7 @@
         </ul>
 <form class="form-inline my-2 my-lg-0" role="search" action="{% url 'search_results' %}">
             <input class="form-control mr-sm-2" type="search" placeholder="Artist Search" aria-label="Search" name="artist">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
         </form>
     </div>
 </nav>

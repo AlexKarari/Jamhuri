@@ -3,7 +3,7 @@
 {{bock.super}}
 <section class="header">
     <div class="container-fluid">
-        <img src="media/profilepic/Logo-01.png" class="img-fluid" alt="logo" style="height:200px;width:auto">
+        
         
     </div>
 </section>
@@ -112,8 +112,8 @@
         <div class="row">
             {% for testimonials in testimonials %}
             <div class="col-md-12">
-                <h5>{{testimonials.testimonial}}</h5>
-                <h6>{{testimonials.author}}</h6>
+                        <h5 style="text-justify: auto; text-align: center">{{testimonials.testimonial}}</h5>
+                        <h6 style="text-align: center">{{testimonials.author}}</h6>
             </div>
             {% endfor %}
         </div>
