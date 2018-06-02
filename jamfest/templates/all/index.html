@@ -1,12 +1,5 @@
 {%extends 'all/base.html'%} 
 {% block content %} 
-{{bock.super}}
-<section class="header">
-    <div class="container-fluid">
-        
-        
-    </div>
-</section>
 <section class="carousel">
     <div class="container-fluid">
 
@@ -15,7 +8,7 @@
 <section class="events">
     <div class="container">
         <hr>
-        <h3 style="text-align: center" style="text-align: center">UPCOMING SHOWS</h3>
+        <h4 style="text-align: center" style="text-align: center">UPCOMING SHOWS</h4>
         <div class="row">
         {% for events in events %}
         <div class="col-md-4">
@@ -41,7 +34,7 @@
 <section class="news">
     <div class="container">
         <hr>
-        <h3 style="text-align: center">Latest News Feed</h3>
+        <h4 style="text-align: center">LATEST NEWS FEED</h4>
         <div class="row">
             {% for news in news %}
             <div class="col-md-4">
@@ -67,7 +60,7 @@
 <section class="services">
     <div class="container">
         <hr>
-        <h3 style="text-align: center">Our Services</h3>
+        <h4 style="text-align: center">OUR SERVICES</h4>
         <div class="row">
             {% for service in service %}
             <div class="col-md-4">
@@ -84,7 +77,7 @@
 <section class="merchandise">
     <div class="container">
         <hr>
-        <h3 style="text-align: center" style="text-align: center">Featured Merchandises</h3>
+        <h4 style="text-align: center" style="text-align: center">FEATURED MERCHANDISES</h4>
         <div class="row">
             {% for merchs in merchs %}
             <div class="col-md-4">
@@ -108,7 +101,7 @@
 <section class="testimonials">
     <div class="container">
         <hr>
-        <h3 style="text-align: center">Testimonials</h3>
+        <h4 style="text-align: center">TESTIMONIALS</h4>
         <div class="row">
             {% for testimonials in testimonials %}
             <div class="col-md-12">
@@ -120,7 +113,7 @@
     </div>
 </section>
 <footer>
-    <div class="jumbotron" style="background-color: purple; background-size: inherit">
+    <div class="jumbotron">
 
     </div>
 </footer>
