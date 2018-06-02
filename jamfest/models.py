@@ -10,6 +10,11 @@ class Artist(models.Model):
     
     def __str__(self):
         return self.name
+    
+    @classmethod
+    def search_by_name(cls, search_term):
+        artist = cls.objects.filter(name__icontains=search_term)
+        return artist
 
 class Events(models.Model):
     name = models.CharField(max_length=100)

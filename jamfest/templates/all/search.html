@@ -1,0 +1,27 @@
+ {%extends 'all/base.html'%} 
+ {% block content %}
+<div class="container">
+
+    <div class="row">
+        {% if searched_artist%}
+        <!--"searched_artist" above is a line of code from search view function. It is what has been passed in-->
+        <h2>Found {{ searched_artist|length }} of searched term {{message}}</h2>
+        {% else %}
+        <h2> No search term result found {{message}}</h2>
+        {% endif %}
+
+    </div>
+
+    <div class="row">
+        {% if searched_artist %} 
+        {% for searched_artist in searched_artist %}
+        <div class="col-sm-6 col-md-3">
+            <a href="{%url 'all_artists' %}">
+                <h3>{{searched_artist.name}}</h3>
+            </a>
+        </div>
+        {% endfor %}
+         {% endif %}
+    </div>
+</div>
+{% endblock %}

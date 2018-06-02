@@ -23,7 +23,9 @@
                 <div class="card">
                     <img class="card-img-top img-fluid" src="{{events.poster.url}}" alt="Card image cap" style="height:291px; width:auto">
                     <div class="card-body">
-                        <h5 class="card-title" >{{events.name|upper}}</h5>
+                        <h5 class="card-title">
+                            <a href="#">{{events.name|upper}}</a>
+                        </h5> 
                         <p class="card-text">{{events.about}}</p>
                     </div>
                     <div class="card-footer">

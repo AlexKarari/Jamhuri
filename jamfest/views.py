@@ -39,4 +39,28 @@ def news(request, news_id):
         raise Http404()
     return render(request, "all/news.html", {"news": news})
 
+# def shows(request, shows_id):
+#     try:
+#         shows = Events.objects.get(id=shows_id)
+#     except DoesNotExist:
+#         raise Http404()
+#     return render(request, "all/shows.html", {"shows": shows})
+
+
+def search_results(request):
+    '''
+    View function that enables a user search for any artist in the agency
+    '''
+
+    if 'artist' in request.GET and request.GET["artist"]:
+        search_term = request.GET.get("artist")
+        searched_artist = Artist.search_by_name(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'all/search.html', {"message": message, "searched_artist": searched_artist})
+
+    else:
+        message = "You are yet to search for an artist"
+        return render(request, 'all/search.html', {"message": message})
+
 
