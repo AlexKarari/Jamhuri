@@ -1,13 +1,15 @@
 {%extends 'all/base.html'%} 
 {% block content %}
 <div class="container">
-    <h3 style="text-align: center">Artist Vault</h3>
+    <h3 style="text-align: center">Artists Vault</h3>
     <div class="row">
         {% for artists in artists %}
         <div class="col-md-4">
             <div class="card-deck">
                 <div class="card">
-                    <img class="card-img-top img-fluid rounded" src="{{artists.avatar.url}}" alt="Artist image">
+                    <a href="{%url 'solo_artist' artists.id %}">
+                        <img class="card-img-top img-fluid rounded" src="{{artists.avatar.url}}" alt="Artist image">
+                    </a>
                 </div>
             </div>
         </div>

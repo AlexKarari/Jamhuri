@@ -1,0 +1,28 @@
+{%extends 'all/base.html'%} 
+{% block content %}
+
+<div class="container">
+
+    <div class="row">
+        <img src="{{artists.avatar.url}}" class="img-fluid" alt="News Image">
+    </div>
+
+    <div class="row">
+        <h1 class="text-center">{{artists.name}}</h1>
+    </div>
+    <div class="row">
+        {% autoescape on %} 
+        {{artists.bio| safe}}
+        {% endautoescape %}
+    </div>
+    <div class="row">
+        <h5>Music genre: {{artists.genre}} </h5>
+    </div>
+
+    <div class="row">
+        <h5>PRICE STARTS FROM: {{artists.price}} </h5>
+    </div>
+
+</div>
+
+{% endblock %}
