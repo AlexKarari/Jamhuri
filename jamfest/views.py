@@ -64,3 +64,8 @@ def search_results(request):
         return render(request, 'all/search.html', {"message": message})
 
 
+def about(request):
+    '''
+    View function that displays what the company's agency is all about
+    '''
+    return render(request, 'all/about.html')

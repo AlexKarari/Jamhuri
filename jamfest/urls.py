@@ -11,6 +11,8 @@ urlpatterns = [
     url(r'^solo_artist/(\d+)/$', views.single_artist, name='solo_artist'),
     # url(r'^events/(\d+)/$', views.shows, name='shows'),
     url(r'^search/', views.search_results, name='search_results'),
+    url(r'^about/$', views.about, name='about_us'),
+    
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,

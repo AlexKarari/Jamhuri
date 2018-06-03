@@ -1,7 +1,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 <a class="navbar-brand" href="{% url 'landingpage' %}">
-<img src="media/profilepic/Logo-01.png" width="150" height="100" class="d-inline-block align-top" alt="jamhuri logo"></a>
+<img src="/media/profilepic/Logo-01.png" width="150" height="100" class="img-fluid d-inline-block align-top" alt="jamhuri logo"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -18,8 +18,6 @@
                     <a class="dropdown-item" href="#}">Shows & Events</a>
                     <a class="dropdown-item" href="#">New Releases</a>
                     <a class="dropdown-item" href="#">Our Team</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">About Us</a>
                 </div>
             </li>
             <li class="nav-item active">
@@ -28,7 +26,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Contact Us</a>
+                <a class="nav-link" href="{% url 'about_us' %}">About Us</a>
             </li>
         </ul>
 <form class="form-inline my-2 my-lg-0" role="search" action="{% url 'search_results' %}">
