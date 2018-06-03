@@ -2,7 +2,37 @@
 {% block content %} 
 <section class="carousel">
     <div class="container-fluid">
-
+        <div id="demo" class="carousel slide" data-ride="carousel">
+        
+            <!-- Indicators -->
+            <ul class="carousel-indicators">
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+                <li data-target="#demo" data-slide-to="2"></li>
+            </ul>
+        
+            <!-- The slideshow -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="media/profilepic/Excelens - Kaskazini-13.jpg" alt="Kaskazini" width="1650px" height="800px" style="background-size: cover">
+                </div>
+                <div class="carousel-item">
+                    <img src="media/profilepic/Excelens - Kaskazini-82.jpg" alt="Anyiko and team" width="1650px" height="800px" style="background-size: cover">
+                </div>
+                <div class="carousel-item">
+                    <img src="media/profilepic/20180509-_EJP4001.jpg" alt="Loyal fans" width="1650px" height="800px" style="background-size: cover">
+                </div>
+            </div>
+        
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        
+        </div>
     </div>
 </section>
 <section class="events">
