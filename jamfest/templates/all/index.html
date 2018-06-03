@@ -144,13 +144,22 @@
     <div class="container">
         <hr>
         <h4 style="text-align: center">TESTIMONIALS</h4>
-        <div class="row">
-            {% for testimonials in testimonials %}
-            <div class="col-md-12">
-                        <h5 style="text-justify: auto; text-align: center">{{testimonials.testimonial}}</h5>
-                        <h6 style="text-align: center">{{testimonials.author}}</h6>
+        <div id="carouselContent" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner" role="listbox">
+                {% for testimonials in testimonials%}
+                <div class="carousel-item active text-center p-4">
+                    <h5 style="text-justify: auto; text-align: center">{{testimonials.testimonial}}</h5>
+                    <h6 style="text-align: center">{{testimonials.author}}</h6>
+                </div>
+                {% endfor %}
             </div>
-            {% endfor %}
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
         </div>
     </div>
 </section>
