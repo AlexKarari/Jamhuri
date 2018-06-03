@@ -61,7 +61,7 @@
                         <h5 class="card-title">
                             <a href="#">{{events.name|upper}}</a>
                         </h5> 
-                        <p class="card-text">{{events.about}}</p>
+                        <p class="card-text">{{events.about|truncatewords:10}}</p>
                     </div>
                     <div class="card-footer">
                         <small class="text-muted">{{events.eventtime}}</small>
@@ -164,8 +164,6 @@
     </div>
 </section>
 <footer>
-    <div class="jumbotron">
 
-    </div>
 </footer>
 {% endblock %}
