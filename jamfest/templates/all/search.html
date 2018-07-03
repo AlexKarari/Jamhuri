@@ -5,9 +5,9 @@
     <div class="row">
         {% if searched_artist%}
         <!--"searched_artist" above is a line of code from search view function. It is what has been passed in-->
-        <h2>Found {{ searched_artist|length }} of searched term {{message}}</h2>
+        <h2 style="text-align: center">Found {{ searched_artist|length }} of searched term {{message}}</h2>
         {% else %}
-        <h2> No search term result found {{message}}</h2>
+        <h2 style="text-align: center"> No search term result found {{message}}</h2>
         {% endif %}
 
     </div>
@@ -15,14 +15,16 @@
     <div class="row">
         {% if searched_artist %} 
         {% for searched_artist in searched_artist %}
-        <div class="col-sm-6 col-md-3">
-            {{searched_artist.avatar.url}}
+        <div class="col-md-4">
+            <img class="img-fluid" src="{{STATIC_URL}}{{searched_artist.avatar.url}}" style="height: 500px; width: 380px">
+            
             <a href="{%url 'solo_artist' searched_artist.id %}">
-                <h3>{{searched_artist.name}}</h3>
+                <h3 style="text-align: center">{{searched_artist.name}}</h3>
             </a>
         </div>
         {% endfor %}
          {% endif %}
     </div>
+    
 </div>
 {% endblock %}
