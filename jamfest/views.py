@@ -26,10 +26,7 @@ def all_artists(request):
 
 
 def single_artist(request, artist_id):
-    try:
-        artists = Artist.objects.get(id=artist_id)
-    except DoesNotExist:
-        raise Http404()
+    artists = Artist.objects.get(pk=artist_id)
     return render(request, "all/single_artist.html", {"artists": artists})
 
 def news(request, news_id):

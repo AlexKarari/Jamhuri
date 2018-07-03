@@ -16,7 +16,8 @@
         {% if searched_artist %} 
         {% for searched_artist in searched_artist %}
         <div class="col-sm-6 col-md-3">
-            <a href="{%url 'all_artists' %}">
+            {{searched_artist.avatar.url}}
+            <a href="{%url 'solo_artist' searched_artist.id %}">
                 <h3>{{searched_artist.name}}</h3>
             </a>
         </div>
