@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'jamfest',
     'bootstrap4',
-    
+    'django_filters',
+
+        
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,12 @@
+{%extends 'all/base.html'%} 
+{% block content %}
+<form method="get">
+    {{ artist_filter.form.as_p }}
+    <button type="submit">Search</button>
+</form>
+<ul>
+    {% for artist_filter in artist_filter.qs %}
+    <li>{{ artist_filter.name }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

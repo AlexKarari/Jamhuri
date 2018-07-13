@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Artist, Events, News, Releases, Merchandise, Testimonials, Services
 from django.http import HttpResponse, Http404, HttpResponseRedirect
+from .filters import ArtistFilter
 
 # Create your views here.
 
@@ -66,3 +67,11 @@ def about(request):
     View function that displays what the company's agency is all about
     '''
     return render(request, 'all/about.html')
+    
+def artist_list(request):
+    artists = Artist.objects.all()
+    artist_filter = ArtistFilter(request.GET, queryset=artists)
+    return render(request, 'all/artistsearch.html', {"artist_filter": artist_filter})
+
+
+    
