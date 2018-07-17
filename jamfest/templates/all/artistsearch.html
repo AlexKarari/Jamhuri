@@ -1,12 +1,49 @@
 {%extends 'all/base.html'%} 
+{% load widget_tweaks %}
 {% block content %}
 <form method="get">
-    {{ artist_filter.form.as_p }}
-    <button type="submit">Search</button>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <h4 style="margin-top: 0">Artist Search Criteria</h4>
+                <div class="row">
+                    <div class="form-group col-sm-4 col-md-3">
+                        {{ artist_filter.form.event.label_tag }} {% render_field artist_filter.form.event class="form-control" %}
+                    </div>
+                    <div class="form-group col-sm-4 col-md-3">
+                        {{ artist_filter.form.talent.label_tag }} {% render_field artist_filter.form.talent class="form-control" %}
+                    </div>
+                    <div class="form-group col-sm-4 col-md-3">
+                        {{ artist_filter.form.genre.label_tag }} {% render_field artist_filter.form.genre class="form-control" %}
+                    </div>
+                    <div class="form-group col-sm-4 col-md-3">
+                        {{ artist_filter.form.price.label_tag }} {% render_field artist_filter.form.price class="form-control" %}
+                    </div>
+                    <!-- <div class="form-group col-sm-8 col-md-6">
+                            {{ filter.form.groups.label_tag }}
+                            <div>
+                                {% for choice in filter.form.groups %}
+                                <label class="checkbox-inline">
+                                    {{ choice.tag }} {{ choice.choice_label }}
+                                </label>
+                                {% endfor %}
+                            </div>
+                        </div> -->
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fab fa-searchengin"></i> Search
+                </button>
+            </div>
+        </div>
+    </div>
 </form>
-<ul>
-    {% for artist_filter in artist_filter.qs %}
-    <li>{{ artist_filter.name }}</li>
-    {% endfor %}
-</ul>
+
+<div class="container">
+    <ul>
+        {% for artist_filter in artist_filter.qs %}
+        <li>{{ artist_filter.name }}</li>
+        {% endfor %}
+    </ul>
+</div>
+
 {% endblock %}

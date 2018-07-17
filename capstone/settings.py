@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'jamfest',
     'bootstrap4',
     'django_filters',
+    'widget_tweaks',
+    'multiselectfield',
+
 
         
 ]
