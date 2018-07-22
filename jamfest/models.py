@@ -1,21 +1,21 @@
 from django.db import models
-from multiselectfield import MultiSelectField
+
 
 # Create your models here.
 class Type_of_Event(models.Model):
-    title = MultiSelectField(max_length=100)
+    title = models.CharField(max_length=100)
     
     def __str__(self):
         return self.title
 
 class Talent(models.Model):
-    title = MultiSelectField(max_length=100)
+    title = models.CharField(max_length=100)
     
     def __str__(self):
         return self.title
 
 class Genre(models.Model):
-    title = MultiSelectField(max_length=100)
+    title = models.CharField(max_length=100)
 
     def __str__(self):
         return self.title
@@ -25,9 +25,9 @@ class Artist(models.Model):
     avatar = models.ImageField(upload_to='profilepic/')
     bio = models.TextField()
     price = models.IntegerField(blank=True, null=True)
-    genre = models.ForeignKey(Genre, on_delete=models.CASCADE, null=True, blank=True)
-    event = models.ForeignKey(Type_of_Event, on_delete=models.CASCADE, null=True, blank=True)
-    talent = models.ForeignKey(Talent, on_delete=models.CASCADE, null=True, blank=True)
+    genre = models.ManyToManyField(Genre, null=True, blank=True)
+    event = models.ManyToManyField(Type_of_Event, null=True, blank=True)
+    talent = models.ManyToManyField(Talent, null=True, blank=True)
     
     def __str__(self):
         return self.name

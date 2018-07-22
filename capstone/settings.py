@@ -42,9 +42,6 @@ INSTALLED_APPS = [
     'bootstrap4',
     'django_filters',
     'widget_tweaks',
-    'multiselectfield',
-
-
         
 ]
 

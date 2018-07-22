@@ -2,6 +2,12 @@ from django.contrib import admin
 from .models import Artist, Events, News, Releases, Merchandise, Testimonials, Services, Type_of_Event, Talent, Genre
 
 # Register your models here.
+
+class ArtistAdmin(admin.ModelAdmin):
+    filter_horizontal = ('Type_of_Event',)
+    filter_horizontal = ('Talent',)
+    filter_horizontal = ('Genre',)
+
 admin.site.register(Artist)
 admin.site.register(Events)
 admin.site.register(News)
