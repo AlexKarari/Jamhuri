@@ -5,14 +5,15 @@
     <h3 style="text-align: center; color: indigo">Artists Vault</h3>
     <div class="row">
         {% for artists in artists %}
-        <div class="col-md-4">
-            <div class="card-deck">
-                <div class="card">
-                    <a href="{%url 'solo_artist' artists.id %}">
-                        <img class="card-img-top img-fluid rounded" src="{{artists.avatar.url}}" alt="Artist image">
-                    </a>
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <a class="info" href="{%url 'solo_artist' artists.id %}">
+            <div class="hovereffect">
+                <img class="img-fluid rounded" src="{{artists.avatar.url}}" alt="Artist image" style="width: 340px; height: 380px;">
+                <div class="overlay">
+                   <h3>{{artists.name}}</h3>
                 </div>
             </div>
+            </a>
         </div>
         {% endfor %}
     </div>
