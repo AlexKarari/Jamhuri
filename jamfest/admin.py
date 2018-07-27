@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Artist, Events, News, Releases, Merchandise, Testimonials, Services, Type_of_Event, Talent, Genre
+from .models import Artist, Events, Articles, Releases, Merchandise, Testimonials, Services, Type_of_Event, Talent, Genre
 
 # Register your models here.
 
@@ -10,7 +10,7 @@ class ArtistAdmin(admin.ModelAdmin):
 
 admin.site.register(Artist)
 admin.site.register(Events)
-admin.site.register(News)
+admin.site.register(Articles)
 admin.site.register(Releases)
 admin.site.register(Merchandise)
 admin.site.register(Testimonials)

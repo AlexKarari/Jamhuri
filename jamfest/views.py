@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Artist, Events, News, Releases, Merchandise, Testimonials, Services
+from .models import Artist, Events, Articles, Releases, Merchandise, Testimonials, Services
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from .filters import ArtistFilter
 
@@ -11,11 +11,11 @@ def index(request):
     Most content here acts as links to the main content.
     '''
     events = Events.objects.all()
-    news = News.objects.all()
+    article = Articles.objects.all()
     testimonials = Testimonials.objects.all()
     service = Services.objects.all()
-    merchs = Merchandise.objects.all()
-    return render(request, 'all/index.html', {"events": events, "news": news, "testimonials": testimonials, "service": service, "merchs": merchs})
+    # merchs = Merchandise.objects.all()
+    return render(request, 'all/index.html', {"events": events, "article": article, "testimonials": testimonials, "service": service})
 
 
 def all_artists(request):
@@ -30,19 +30,16 @@ def single_artist(request, artist_id):
     artists = Artist.objects.get(pk=artist_id)
     return render(request, "all/single_artist.html", {"artists": artists})
 
-def news(request, news_id):
+def articles(request, article_id):
     try:
-        news = News.objects.get(id=news_id)
+        article = Articles.objects.get(id=article_id)
     except DoesNotExist:
         raise Http404()
-    return render(request, "all/news.html", {"news": news})
+    return render(request, "all/articles.html", {"article": article})
 
-# def shows(request, shows_id):
-#     try:
-#         shows = Events.objects.get(id=shows_id)
-#     except DoesNotExist:
-#         raise Http404()
-#     return render(request, "all/shows.html", {"shows": shows})
+def shows(request, events_id):
+    events = Events.objects.get(pk=events_id)
+    return render(request, "all/shows.html", {"events": events})
 
 
 def search_results(request):

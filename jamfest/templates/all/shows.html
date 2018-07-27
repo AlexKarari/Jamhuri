@@ -2,19 +2,17 @@
 {% block content %}
 
 <div class="container">
+    <div class="row">
+        <div class="col-md-7">
+            <img src="{{events.poster.url}}" class="img-fluid" alt="Poster" style="width: 600px; height: 620px;">
+        </div>
+        <div class="col-md-5">
+            <h1 class="text-center">{{events.name}}</h1>
+            {% autoescape on %} {{events.about| safe}} {% endautoescape %}
+            <h5>Show starts at: {{events.eventtime}} </h5>
 
-    <div class="row">
-        <img src="{{shows.poster.url}}" class="img-fluid" alt="Poster">
-    </div>
+        </div>
 
-    <div class="row">
-        <h1 class="text-center">{{shows.name}}</h1>
-    </div>
-    <div class="row">
-        {% autoescape on %} {{shows.about| safe}} {% endautoescape %}
-    </div>
-    <div class="row">
-        <h5>Show starts at: {{shows.eventtime}} </h5>
     </div>
 
 </div>

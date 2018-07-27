@@ -1,0 +1,20 @@
+{%extends 'all/base.html'%} 
+{% block content %}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-5">
+            <img src="{{article.image.url}}" class="img-fluid" alt="article Image">
+        </div>
+        <div class="col-md-7">
+            <h2 class="text-center">{{article.title}}</h2>
+            <p> {% autoescape on %} {{article.post| safe}} {% endautoescape %}</p>
+            <p>Posted {{article.postDate|timesince}} ago</p>
+        </div>
+        
+    </div>
+
+</div>
+
+{% endblock %}

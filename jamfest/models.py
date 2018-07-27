@@ -25,9 +25,9 @@ class Artist(models.Model):
     avatar = models.ImageField(upload_to='profilepic/')
     bio = models.TextField()
     price = models.IntegerField(blank=True, null=True)
-    genre = models.ManyToManyField(Genre, null=True, blank=True)
-    event = models.ManyToManyField(Type_of_Event, null=True, blank=True)
-    talent = models.ManyToManyField(Talent, null=True, blank=True)
+    genre = models.ManyToManyField(Genre, blank=True)
+    event = models.ManyToManyField(Type_of_Event, blank=True)
+    talent = models.ManyToManyField(Talent, blank=True)
     
     def __str__(self):
         return self.name
@@ -46,10 +46,10 @@ class Events(models.Model):
     def __str__(self):
         return self.name
 
-class News(models.Model):
+class Articles(models.Model):
     title = models.CharField(max_length=100)
     post = models.TextField()
-    image = models.ImageField(upload_to='newsimages/')
+    image = models.ImageField(upload_to='newsimages/', blank=True)
     postDate = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
