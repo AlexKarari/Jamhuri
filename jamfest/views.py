@@ -10,7 +10,7 @@ def index(request):
     View function that displays the homepage and all its contents.
     Most content here acts as links to the main content.
     '''
-    events = Events.objects.all()
+    events = Events.objects.all()[0:3]
     article = Articles.objects.all()
     testimonials = Testimonials.objects.all()
     service = Services.objects.all()
