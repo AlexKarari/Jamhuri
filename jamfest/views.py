@@ -11,7 +11,7 @@ def index(request):
     Most content here acts as links to the main content.
     '''
     events = Events.objects.all()[0:3]
-    article = Articles.objects.all()
+    article = Articles.objects.all()[0:3]
     testimonials = Testimonials.objects.all()
     service = Services.objects.all()
     # merchs = Merchandise.objects.all()
@@ -69,6 +69,21 @@ def artist_list(request):
     artists = Artist.objects.all()
     artist_filter = ArtistFilter(request.GET, queryset=artists)
     return render(request, 'all/artistsearch.html', {"artist_filter": artist_filter})
+
+def all_shows_list(request):
+    '''
+    view function to display all the shows for jamhuri events
+    '''
+    events = Events.objects.all()
+    return render(request, 'all/show_list.html', {"events": events})
+
+def all_articles_list(request):
+    '''
+    view function to display all Jamhuri's articles
+    '''
+    article = Articles.objects.all()
+    return render(request, 'all/articles_list.html', {"article": article})
+
 
 
     

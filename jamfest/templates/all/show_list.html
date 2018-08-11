@@ -1,0 +1,9 @@
+{%extends 'all/base.html'%} 
+{% block content %} 
+{% load static %}
+<div class="container">
+    {% for events in events %}
+    <img src="{{events.poster.url}}" class="img-fluid" alt="Poster" style="width: 600px; height: 620px;">
+    {% endfor %}
+</div>
+{% endblock %}
