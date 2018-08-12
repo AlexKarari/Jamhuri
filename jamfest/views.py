@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
-from .models import Artist, Events, Articles, Releases, Merchandise, Testimonials, Services
+from .models import Artist, Events, Articles, Releases, Merchandise, Testimonials, Services, NewsLetterRecipients
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from .filters import ArtistFilter
+from .forms import NewsLetterForm
 
 # Create your views here.
 
@@ -14,16 +15,27 @@ def index(request):
     article = Articles.objects.all()[0:3]
     testimonials = Testimonials.objects.all()
     service = Services.objects.all()
-    # merchs = Merchandise.objects.all()
-    return render(request, 'all/index.html', {"events": events, "article": article, "testimonials": testimonials, "service": service})
+    if request.method == 'POST':
+        form = NewsLetterForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['your_name']
+            email = form.cleaned_data['email']
+            recipient = NewsLetterRecipients(name=name, email=email)
+            recipient.save()
+            HttpResponseRedirect('landingpage')
+    else:
+        form = NewsLetterForm()
+    return render(request, 'all/index.html', {"events": events, "article": article, "testimonials": testimonials, "service": service, "letterForm": form})
 
 
 def all_artists(request):
     '''
-    View function that displays all artists in the company's agency
+    View function that displays all artists in the company's agency and a search criteria for them
     '''
     artists = Artist.objects.all()
-    return render(request, 'all/allartists.html', {"artists": artists})
+    artist_filter = ArtistFilter(request.GET, queryset=artists)
+    return render(request, 'all/allartists.html', {"artists": artists, "artist_filter": artist_filter})
+
 
 
 def single_artist(request, artist_id):
@@ -65,10 +77,7 @@ def about(request):
     '''
     return render(request, 'all/about.html')
     
-def artist_list(request):
-    artists = Artist.objects.all()
-    artist_filter = ArtistFilter(request.GET, queryset=artists)
-    return render(request, 'all/artistsearch.html', {"artist_filter": artist_filter})
+
 
 def all_shows_list(request):
     '''

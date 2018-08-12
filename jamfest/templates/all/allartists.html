@@ -1,6 +1,63 @@
 {%extends 'all/base.html'%} 
+{% load widget_tweaks %}
 {% block content %}
 {% load static %}
+<form method="get">
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <h4 style="margin-top: 0">Artist Search Criteria</h4>
+                <div class="row">
+                    <div class="form-group col-sm-4 col-md-3">
+                        {{ artist_filter.form.event.label_tag }}
+                        <div>
+                            {% for choice in artist_filter.form.event %}
+                            <label class="checkbox-inline">
+                                {{ choice.tag }} {{ choice.choice_label }}
+                            </label>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-4 col-md-3">
+                        {{ artist_filter.form.talent.label_tag }}
+                        <div>
+                            {% for choice in artist_filter.form.talent %}
+                            <label class="checkbox-inline">
+                                {{ choice.tag }} {{ choice.choice_label }}
+                            </label>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-4 col-md-3">
+                        {{ artist_filter.form.genre.label_tag }}
+                        <div>
+                            {% for choice in artist_filter.form.genre %}
+                            <label class="checkbox-inline">
+                                {{ choice.tag }} {{ choice.choice_label }}
+                            </label>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-4 col-md-3">
+                        {{ artist_filter.form.price.label_tag }} 
+                        {% render_field artist_filter.form.price class="form-control" placeholder="Enter Your Max Price" %}
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fab fa-searchengin"></i> Search
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="container">
+    <ul>
+        {% for artist_filter in artist_filter.qs %}
+        <li>{{ artist_filter.name }}</li>
+        {% endfor %}
+    </ul>
+</div>
 <div class="container">
     <h3 style="text-align: center; color: indigo">Artists Vault</h3>
     <div class="row">

@@ -12,7 +12,6 @@ urlpatterns = [
     url(r'^shows/(\d+)/$', views.shows, name='shows'),
     url(r'^search/', views.search_results, name='search_results'),
     url(r'^about/$', views.about, name='about_us'),
-    url(r'^search_criteria/$', views.artist_list, name='searcher'),
     url(r'^all_shows/$', views.all_shows_list, name='all_shows'),
     url(r'^all_articles/$', views.all_articles_list, name='all_articles'),
 ]
