@@ -95,3 +95,8 @@ def all_articles_list(request):
 
 
 
+def test(request):
+    '''
+    This view function will render a test page
+    '''
+    return render(request,'test.html')
