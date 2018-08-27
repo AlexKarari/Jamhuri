@@ -5,6 +5,7 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
+url('^test$',views.test,name = 'test')
     url('^$', views.index, name='landingpage'),
     url(r'^article/(\d+)/$', views.articles, name='articles'),
     url(r'^all_artists/$', views.all_artists, name='all_artists'),

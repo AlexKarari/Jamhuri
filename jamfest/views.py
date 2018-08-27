@@ -95,4 +95,3 @@ def all_articles_list(request):
 
 
 
-    
