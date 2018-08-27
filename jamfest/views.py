@@ -99,4 +99,4 @@ def test(request):
     '''
     This view function will render a test page
     '''
-    return render(request,'layouts/base.html')
+    return render(request,'test.html')
