@@ -99,8 +99,10 @@ def all_articles_list(request):
     '''
     view function to display all Jamhuri's articles
     '''
+    bTitle = 'Jamhuri Blog'
+    link = 'Blog'
     article = Articles.objects.all()
-    return render(request, 'all/articles_list.html', {"article": article})
+    return render(request, 'all/articles_list.html', {"article": article,'link':link,'bTitle':bTitle})
 
 
 
