@@ -557,25 +557,26 @@
 							<h6 class="highlight">My blog</h6>
 							<h2 class="section_header">Latest news</h2>
 							<div class="owl-carousel topmargin_60" data-responsive-lg="3" data-dots="true">
-								<article class="vertical-item content-padding with_background rounded overflow_hidden text-center">
-									<div class="item-media top_rounded overflow_hidden"> <img src="{% static 'images/gallery/11.jpg' %}" alt="">
-										<div class="media-links"> <a href="blog-single-right.html" class="abs-link"></a> </div>
+								{% for article in articles %}
+									<article class="vertical-item content-padding with_background rounded overflow_hidden text-center">
+									<div class="item-media top_rounded overflow_hidden"> <img src="{{article.image.url}}" alt="">
+										<div class="media-links"> <a href="{%url 'articles' article.id %}" class="abs-link"></a> </div>
 									</div>
 									<div class="item-content">
 										<header class="entry-header">
 											<div class="entry-meta small-text content-justify"> <span class="categories-links highlightlinks">
 										<a href="#0">Life</a>
 									</span> <span class="greylinks">
-										<a href="blog-single-right.html">
+										<a href="{%url 'articles' article.id %}">
 											<time datetime="2017-10-03T08:50:40+00:00">
 												14/09/2017
 											</time>
 										</a>
 									</span> </div>
-											<h4 class="entry-title"> <a href="blog-single-right.html">I stayed at the Resident Hotel In Miami</a> </h4>
+											<h4 class="entry-title"> <a href="{%url 'articles' article.id %}">{{article.title}}</a> </h4>
 										</header>
 										<div class="entry-content">
-											<p>Jowl pork beef ball tip burgdoggen. Pork chop jowl boudin, pork loin alcatra leberkas cow tenderloin rump shankle bacon.</p>
+											<p>{{article.post|truncatewords:15}}</p>
 										</div>
 									</div>
 									<footer class="entry-meta entry-footer small-text greylinks bottom_color_border">
@@ -591,74 +592,10 @@
 										</div>
 									</footer>
 								</article>
-								<article class="vertical-item content-padding with_background rounded overflow_hidden text-center">
-									<div class="item-media top_rounded overflow_hidden"> <img src="{% static 'images/gallery/18.jpg' %}" alt="">
-										<div class="media-links"> <a href="blog-single-right.html" class="abs-link"></a> </div>
-									</div>
-									<div class="item-content">
-										<header class="entry-header">
-											<div class="entry-meta small-text content-justify"> <span class="categories-links highlightlinks">
-										<a href="#0">Music</a>
-									</span> <span class="greylinks">
-										<a href="blog-single-right.html">
-											<time datetime="2017-10-03T08:50:40+00:00">
-												15/09/2017
-											</time>
-										</a>
-									</span> </div>
-											<h4 class="entry-title"> <a href="blog-single-right.html">My new album out "Tired eyes"</a> </h4>
-										</header>
-										<div class="entry-content">
-											<p>Swine biltong tenderloin, ball tip andouille cupim kevin filet mignon sirloin drumstick shoulder. Salami ham hock ground.</p>
-										</div>
-									</div>
-									<footer class="entry-meta entry-footer small-text greylinks bottom_color_border">
-										<div class="inline-content"> <a href="#0">
-									<i class="fa fa-user rightpadding_5" aria-hidden="true"></i>
-									<span>Admin</span>
-								</a> <a href="#0">
-									<i class="fa fa-comment rightpadding_5" aria-hidden="true"></i>
-									<span class="value">7523</span>
-								</a> <span>
-									<i class="fa fa-eye rightpadding_5" aria-hidden="true"></i>
-									<span class="value">7812</span> </span>
-										</div>
-									</footer>
-								</article>
-								<article class="vertical-item content-padding with_background rounded overflow_hidden text-center">
-									<div class="item-media top_rounded overflow_hidden"> <img src="{% static 'images/gallery/19.jpg' %}" alt="">
-										<div class="media-links"> <a href="blog-single-right.html" class="abs-link"></a> </div>
-									</div>
-									<div class="item-content">
-										<header class="entry-header">
-											<div class="entry-meta small-text content-justify"> <span class="categories-links highlightlinks">
-										<a href="#0">Concerts</a>
-									</span> <span class="greylinks">
-										<a href="blog-single-right.html">
-											<time datetime="2017-10-03T08:50:40+00:00">
-												18/09/2017
-											</time>
-										</a>
-									</span> </div>
-											<h4 class="entry-title"> <a href="blog-single-right.html">Non-stop party in Berlin</a> </h4>
-										</header>
-										<div class="entry-content">
-											<p>Shankle biltong boudin doner. Jerky prosciutto flank burgdoggen pork beef ribs. Tenderloin tongue chicken beef ribs.</p>
-										</div>
-									</div>
-									<footer class="entry-meta entry-footer small-text greylinks bottom_color_border">
-										<div class="inline-content"> <a href="#0">
-									<i class="fa fa-user rightpadding_5" aria-hidden="true"></i>
-									<span>Admin</span>
-								</a> <a href="#0">
-									<i class="fa fa-comment rightpadding_5" aria-hidden="true"></i>
-									<span class="value">8459</span>
-								</a> <span>
-									<i class="fa fa-eye rightpadding_5" aria-hidden="true"></i>
-									<span class="value">9852</span> </span>
-										</div>
-									</footer>
-								</article>
+
+								{% endfor %}
+								
+
 							</div>
 						</div>
 					</div>

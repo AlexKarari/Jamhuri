@@ -120,7 +120,7 @@ def test(request):
     This view function will render a test page
     '''
     events = Events.objects.all()[0:3]
-    article = Articles.objects.all()[0:3]
+    articles = Articles.objects.all()[0:3]
     testimonials = Testimonials.objects.all()
     service = Services.objects.all()
     if request.method == 'POST':
@@ -133,4 +133,4 @@ def test(request):
             HttpResponseRedirect('landingpage')
     else:
         form = NewsLetterForm()
-    return render(request, 'test.html', {"events": events, "article": article, "testimonials": testimonials, "service": service, "letterForm": form})
+    return render(request, 'test.html', {"events": events, "articles": articles, "testimonials": testimonials, "service": service, "letterForm": form})

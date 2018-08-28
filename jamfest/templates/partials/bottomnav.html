@@ -3,7 +3,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-sm-12 display_table">
-				<div class="header_left_logo display_table_cell"> <a href="{% url 'landingpage' %}" class="logo top_logo">
+				<div class="header_left_logo display_table_cell"> <a href="{% url 'test' %}" class="logo top_logo">
             <img src="{% static 'images/logo.png' %}" alt="">
         </a> </div>
 				<div class="header_mainmenu display_table_cell text-center">
@@ -19,11 +19,11 @@
 								<li> <a href="#gigs">Gigs</a> </li>
 								<li> <a href="#news">News</a> </li>
 							{% else %}
-								<li class="active"> <a href="{% url 'landingpage' %}">Home</a></li>
+								<li class="active"> <a href="{% url 'test' %}">Home</a></li>
 								<li> <a href="{% url 'about_us' %}">About</a> </li>
-								<li> <a href="#featured-video">Featured</a> </li>
+								<li> <a href="/test#featured-video">Featured</a> </li>
 								<li> <a href="#latest-album">Latest</a> </li>
-								<li> <a href="#gallery">Photos</a> </li>
+								<li> <a href="{% url 'photos' %}">Photos</a> </li>
 								<li> <a href="#gigs">Gigs</a> </li>
 								<li> <a href="{% url 'all_articles' %}">News</a> </li>
 							{% endif %}
