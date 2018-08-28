@@ -54,7 +54,8 @@ def articles(request, article_id):
         raise Http404()
     bTitle = article.title
     link = article.title
-    return render(request, "all/articles.html", {"article": article,'bTitle':bTitle,'link':link})
+    articles = Articles.objects.all()[0:4]
+    return render(request, "all/articles.html", {"article": article,'bTitle':bTitle,'link':link,'articles':articles})
 
 def shows(request, events_id):
     events = Events.objects.get(pk=events_id)
@@ -112,4 +113,18 @@ def test(request):
     '''
     This view function will render a test page
     '''
-    return render(request,'test.html')
+    events = Events.objects.all()[0:3]
+    article = Articles.objects.all()[0:3]
+    testimonials = Testimonials.objects.all()
+    service = Services.objects.all()
+    if request.method == 'POST':
+        form = NewsLetterForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['your_name']
+            email = form.cleaned_data['email']
+            recipient = NewsLetterRecipients(name=name, email=email)
+            recipient.save()
+            HttpResponseRedirect('landingpage')
+    else:
+        form = NewsLetterForm()
+    return render(request, 'test.html', {"events": events, "article": article, "testimonials": testimonials, "service": service, "letterForm": form})

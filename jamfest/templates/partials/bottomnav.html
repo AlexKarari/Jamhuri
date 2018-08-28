@@ -10,19 +10,24 @@
 					<!-- main nav start -->
 					<nav class="mainmenu_wrapper">
 						<ul class="mainmenu nav sf-menu">
-							<li class="active"> <a href="#canvas">Home</a>
-								<ul>
-									<li> <a href="index-2.html">Home</a> </li>
-									<li> <a href="index-static.html">Home static intro</a> </li>
-									<li> <a href="index-single.html">Home single page</a> </li>
-								</ul>
-							</li>
-							<li> <a href="#about">About</a> </li>
-							<li> <a href="#featured-video">Featured</a> </li>
-							<li> <a href="#latest-album">Latest</a> </li>
-							<li> <a href="#gallery">Photos</a> </li>
-							<li> <a href="#gigs">Gigs</a> </li>
-							<li> <a href="#news">News</a> </li>
+							{% if request.path == '/' %}
+								<li class="active"> <a href="#canvas">Home</a></li>
+								<li> <a href="#about">About</a> </li>
+								<li> <a href="#featured-video">Featured</a> </li>
+								<li> <a href="#latest-album">Latest</a> </li>
+								<li> <a href="#gallery">Photos</a> </li>
+								<li> <a href="#gigs">Gigs</a> </li>
+								<li> <a href="#news">News</a> </li>
+							{% else %}
+								<li class="active"> <a href="{% url 'landingpage' %}">Home</a></li>
+								<li> <a href="{% url 'about_us' %}">About</a> </li>
+								<li> <a href="#featured-video">Featured</a> </li>
+								<li> <a href="#latest-album">Latest</a> </li>
+								<li> <a href="#gallery">Photos</a> </li>
+								<li> <a href="#gigs">Gigs</a> </li>
+								<li> <a href="{% url 'all_articles' %}">News</a> </li>
+							{% endif %}
+							
 						</ul>
 					</nav>
 					<!-- eof main nav -->
