@@ -107,7 +107,13 @@ def all_articles_list(request):
     article = Articles.objects.all()
     return render(request, 'all/articles_list.html', {"article": article,'link':link,'bTitle':bTitle})
 
-
+def photos(request):
+    '''
+    This view function will render the gallery page.
+    '''
+    bTitle = 'Jamhuri Gallery'
+    link = 'photos'
+    return render(request, 'all/photos.html', {'link':link,'bTitle':bTitle})
 
 def test(request):
     '''
