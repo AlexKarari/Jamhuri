@@ -52,7 +52,9 @@ def articles(request, article_id):
         article = Articles.objects.get(id=article_id)
     except DoesNotExist:
         raise Http404()
-    return render(request, "all/articles.html", {"article": article})
+    bTitle = article.title
+    link = article.title
+    return render(request, "all/articles.html", {"article": article,'bTitle':bTitle,'link':link})
 
 def shows(request, events_id):
     events = Events.objects.get(pk=events_id)
