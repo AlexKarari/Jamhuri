@@ -68,8 +68,10 @@ def search_results(request):
         search_term = request.GET.get("artist")
         searched_artist = Artist.search_by_name(search_term)
         message = f"{search_term}"
+        bTitle = 'Artist Search Results'
+        link = 'Search'
 
-        return render(request, 'all/search.html', {"message": message, "searched_artist": searched_artist})
+        return render(request, 'all/search.html', {"message": message, "searched_artist": searched_artist,'bTitle':bTitle,'link':link})
 
     else:
         message = "You are yet to search for an artist"

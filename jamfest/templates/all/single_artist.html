@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="col-md-7">
-                <p>{% autoescape on %} {{artists.bio| safe}} {% endautoescape %} </p>
+                
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs topmargin_40" role="tablist">
                     <li class="active"><a href="#tab1" role="tab" data-toggle="tab">Biography</a></li>
@@ -26,11 +26,7 @@
                 <div class="tab-content big-padding top-color-border bottommargin_40">
                     <div class="tab-pane fade in active" id="tab1">
                         <h4>Biography:</h4>
-                        <p> Ut wisi enim ad minim veniaquis nostrud exetation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Dutem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis
-                            at vero eros et accumsan et iusto odio dignissim qui blandit. </p>
-                        <h4>Professional Life:</h4>
-                        <p> Dutem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit. Praesent luptatum zzril delenit augue duis dolore te
-                            feugait nulla facilisi. </p>
+                       <p>{% autoescape on %} {{artists.bio| safe}} {% endautoescape %} </p>
                     </div>
                     <div class="tab-pane fade" id="tab2">
                         <p class="progress-bar-title"> Skill Name </p>

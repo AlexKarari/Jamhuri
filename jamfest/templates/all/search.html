@@ -1,30 +1,41 @@
- {%extends 'all/base.html'%} 
- {% block content %}
-<div class="container">
+{%extends 'layouts/base.html'%} 
+{% load widget_tweaks %}
+{% block content %}
+{% include 'partials/breadcrumb.html' %}
+{% load static %}
 
-    <div class="row">
-        {% if searched_artist%}
-        <!--"searched_artist" above is a line of code from search view function. It is what has been passed in-->
-        <h2 style="text-align: center">Found {{ searched_artist|length }} of searched term {{message}}</h2>
-        {% else %}
-        <h2 style="text-align: center"> No search term result found {{message}}</h2>
-        {% endif %}
+<section class="container" style="padding-top:20px">
+    {% if searched_artist%}
+    <!--"searched_artist" above is a line of code from search view function. It is what has been passed in-->
+    <h4>Found {{ searched_artist|length }} results of searched term: {{message}}</h4>
+    {% else %}
+    <h4>No search term result found {{message}}</h4>
+    {% endif %}
 
-    </div>
+</section>
+<section class="ls page_portfolio section_padding_bottom_130">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="isotope_container isotope row masonry-layout columns_margin_bottom_20">
+                                {% for searched_artist in searched_artist %}
+                                    <div class="isotope-item col-lg-4 col-md-6 col-sm-6">
+                                        <div class="vertical-item content-padding with_background bottom_color_border rounded text-center">
+                                            <div class="item-media"> <img src="{{STATIC_URL}}{{searched_artist.avatar.url}}" alt=""> </div>
+                                            <div class="item-content">
+                                                <h4 class="entry-title bottommargin_0"> <a href="{%url 'solo_artist' searched_artist.id %}">{{searched_artist.name}}</a> </h4>
+                                                <p class="small-text highlight">Producer</p>
+                                                <div> <a class="social-icon socicon-facebook" href="#" title="Facebook"></a> <a class="social-icon socicon-twitter" href="#" title="Twitter"></a> <a class="social-icon socicon-youtube" href="#" title="Youtube"></a> </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                             
+                            </div>
+                            <!-- eof .isotope_container.row -->
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-    <div class="row">
-        {% if searched_artist %} 
-        {% for searched_artist in searched_artist %}
-        <div class="col-md-4">
-            <img class="img-fluid" src="{{STATIC_URL}}{{searched_artist.avatar.url}}" style="height: 500px; width: 380px">
-            
-            <a href="{%url 'solo_artist' searched_artist.id %}">
-                <h3 style="text-align: center">{{searched_artist.name}}</h3>
-            </a>
-        </div>
-        {% endfor %}
-         {% endif %}
-    </div>
-    
-</div>
 {% endblock %}
