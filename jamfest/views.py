@@ -32,9 +32,11 @@ def all_artists(request):
     '''
     View function that displays all artists in the company's agency and a search criteria for them
     '''
+    bTitle = 'jamhuri Artists'
+    link = 'Artists'
     artists = Artist.objects.all()
     artist_filter = ArtistFilter(request.GET, queryset=artists)
-    return render(request, 'all/allartists.html', {"artists": artists, "artist_filter": artist_filter})
+    return render(request, 'all/allartists.html', {"artists": artists, "artist_filter": artist_filter,'bTitle':bTitle,'link':link})
 
 
 

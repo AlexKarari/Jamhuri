@@ -1,78 +1,31 @@
-{%extends 'all/base.html'%} 
+{%extends 'layouts/base.html'%} 
 {% load widget_tweaks %}
 {% block content %}
+{% include 'partials/breadcrumb.html' %}
 {% load static %}
-<form method="get">
-    <div class="container">
-        <div class="card">
-            <div class="card-body">
-                <h4 style="margin-top: 0">Artist Search Criteria</h4>
-                <div class="row">
-                    <div class="form-group col-sm-4 col-md-3">
-                        {{ artist_filter.form.event.label_tag }}
-                        <div>
-                            {% for choice in artist_filter.form.event %}
-                            <label class="checkbox-inline">
-                                {{ choice.tag }} {{ choice.choice_label }}
-                            </label>
-                            {% endfor %}
+<section class="ls page_portfolio section_padding_top_150 section_padding_bottom_130">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="isotope_container isotope row masonry-layout columns_margin_bottom_20">
+                                {% for artists in artists %}
+                                    <div class="isotope-item col-lg-4 col-md-6 col-sm-6">
+                                        <div class="vertical-item content-padding with_background bottom_color_border rounded text-center">
+                                            <div class="item-media"> <img src="{{artists.avatar.url}}" alt=""> </div>
+                                            <div class="item-content">
+                                                <h4 class="entry-title bottommargin_0"> <a href="{%url 'solo_artist' artists.id %}">{{artists.name}}</a> </h4>
+                                                <p class="small-text highlight">Producer</p>
+                                                <div> <a class="social-icon socicon-facebook" href="#" title="Facebook"></a> <a class="social-icon socicon-twitter" href="#" title="Twitter"></a> <a class="social-icon socicon-youtube" href="#" title="Youtube"></a> </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                             
+                            </div>
+                            <!-- eof .isotope_container.row -->
                         </div>
-                    </div>
-                    <div class="form-group col-sm-4 col-md-3">
-                        {{ artist_filter.form.talent.label_tag }}
-                        <div>
-                            {% for choice in artist_filter.form.talent %}
-                            <label class="checkbox-inline">
-                                {{ choice.tag }} {{ choice.choice_label }}
-                            </label>
-                            {% endfor %}
-                        </div>
-                    </div>
-                    <div class="form-group col-sm-4 col-md-3">
-                        {{ artist_filter.form.genre.label_tag }}
-                        <div>
-                            {% for choice in artist_filter.form.genre %}
-                            <label class="checkbox-inline">
-                                {{ choice.tag }} {{ choice.choice_label }}
-                            </label>
-                            {% endfor %}
-                        </div>
-                    </div>
-                    <div class="form-group col-sm-4 col-md-3">
-                        {{ artist_filter.form.price.label_tag }} 
-                        {% render_field artist_filter.form.price class="form-control" placeholder="Enter Your Max Price" %}
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">
-                    <i class="fab fa-searchengin"></i> Search
-                </button>
-            </div>
-        </div>
-    </div>
-</form>
+            </section>
 
-<div class="container">
-    <ul>
-        {% for artist_filter in artist_filter.qs %}
-        <li>{{ artist_filter.name }}</li>
-        {% endfor %}
-    </ul>
-</div>
-<div class="container">
-    <h3 style="text-align: center; color: indigo">Artists Vault</h3>
-    <div class="row">
-        {% for artists in artists %}
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-            <a class="info" href="{%url 'solo_artist' artists.id %}">
-            <div class="hovereffect">
-                <img class="img-fluid rounded" src="{{artists.avatar.url}}" alt="Artist image" style="width: 340px; height: 380px;">
-                <div class="overlay">
-                   <h3>{{artists.name}}</h3>
-                </div>
-            </div>
-            </a>
-        </div>
-        {% endfor %}
-    </div>
-</div>
 {% endblock %}
