@@ -75,7 +75,9 @@ def about(request):
     '''
     View function that displays what the company's agency is all about
     '''
-    return render(request, 'all/about.html')
+    bTitle = 'About Jamhuri'
+    link = 'About'
+    return render(request, 'all/about.html',{'link':link,'bTitle':bTitle})
     
 
 
