@@ -41,8 +41,11 @@ def all_artists(request):
 
 
 def single_artist(request, artist_id):
+    bTitle = 'Artist Profile'
+    
     artists = Artist.objects.get(pk=artist_id)
-    return render(request, "all/single_artist.html", {"artists": artists})
+    link = artists.name
+    return render(request, "all/single_artist.html", {"artists": artists,'bTitle':bTitle,'link':link})
 
 def articles(request, article_id):
     try:

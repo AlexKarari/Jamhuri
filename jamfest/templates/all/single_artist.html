@@ -1,23 +1,63 @@
-{%extends 'all/base.html'%} 
+{%extends 'layouts/base.html'%} 
 {% block content %}
-
-<div class="container">
-
-    <div class="row">
-        <div class="col-md-5">
-            <img src="{{artists.avatar.url}}" class="img-fluid" alt="Artist Image">
-        </div> 
-        <div class="col-md-7">
-            <h1 style="text-align: center; color: indigo">{{artists.name}}</h1>
-            <p style="text-align:justify; text-justify: auto">{% autoescape on %} {{artists.bio| safe}} {% endautoescape %}</p>
-            <h6>MUSIC GENRE: {{artists.genre}} </h6>
-            <!-- <h6>PRICE STARTS FROM: {{artists.price}} </h6> -->
-            <br>
-            <a href="#" class="btn btn-success" role="button">BOOK ARTIST</a>
-            <br>
-            <a href="{{request.META.HTTP_REFERER}}"><h2>Back To Search Results</h2></a>
+{% include 'partials/breadcrumb.html' %}
+<section class="ls section_padding_top_150 section_padding_bottom_130 columns_padding_25">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="vertical-item content-padding with_background bottom_color_border rounded text-center">
+                    <div class="item-media"> <img src="{{artists.avatar.url}}" alt=""> </div>
+                    <div class="item-content">
+                        <h4 class="entry-title bottommargin_0"> {{artists.name}} </h4>
+                        <p class="small-text highlight">Producer</p>
+                        <div> <a class="social-icon socicon-facebook" href="#" title="Facebook"></a> <a class="social-icon socicon-twitter" href="#" title="Twitter"></a> <a class="social-icon socicon-youtube" href="#" title="Youtube"></a> </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <p>{% autoescape on %} {{artists.bio| safe}} {% endautoescape %} </p>
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs topmargin_40" role="tablist">
+                    <li class="active"><a href="#tab1" role="tab" data-toggle="tab">Biography</a></li>
+                    <li><a href="#tab2" role="tab" data-toggle="tab">Skills</a></li>
+                    
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content big-padding top-color-border bottommargin_40">
+                    <div class="tab-pane fade in active" id="tab1">
+                        <h4>Biography:</h4>
+                        <p> Ut wisi enim ad minim veniaquis nostrud exetation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Dutem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis
+                            at vero eros et accumsan et iusto odio dignissim qui blandit. </p>
+                        <h4>Professional Life:</h4>
+                        <p> Dutem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit. Praesent luptatum zzril delenit augue duis dolore te
+                            feugait nulla facilisi. </p>
+                    </div>
+                    <div class="tab-pane fade" id="tab2">
+                        <p class="progress-bar-title"> Skill Name </p>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" data-transitiongoal="90"> <span>90%</span> </div>
+                        </div>
+                        <p class="progress-bar-title"> Skill Name </p>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" data-transitiongoal="100"> <span>100%</span> </div>
+                        </div>
+                        <p class="progress-bar-title"> Skill Name </p>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" data-transitiongoal="75"> <span>75%</span> </div>
+                        </div>
+                        <p class="progress-bar-title"> Skill Name </p>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" data-transitiongoal="95"> <span>95%</span> </div>
+                        </div>
+                    </div>
+                   
+                </div>
+                <!-- eof .tab-content -->
+               
+                
+            </div>
         </div>
     </div>
-</div>
+</section>
 
 {% endblock %}
