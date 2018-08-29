@@ -1,20 +1,151 @@
-{%extends 'all/base.html'%} 
+{%extends 'layouts/base.html'%} 
 {% block content %}
+{% load static %}
+{% include 'partials/breadcrumb.html' %}
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-7">
-            <img src="{{events.poster.url}}" class="img-fluid" alt="Poster" style="width: 600px; height: 620px;">
+
+<section class="ls section_padding_top_15 section_padding_bottom_50 columns_padding_25">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-7 col-md-8 col-lg-8">
+                <article class="event-single vertical-item content-padding big-padding with_background">
+                    <div class="item-media entry-thumbnail"> <img src="{{events.poster.url}}" alt=""> </div>
+                    <div class="item-content">
+                        <header class="entry-header">
+                            <h1 class="entry-title topmargin_10">{{events.name}}</h1>
+                        </header>
+                        <!-- .entry-header -->
+                        <div class="entry-content">
+                            <p>{{events.about}} </p>
+                        </div>
+                        <div class="entry-meta small-text text-left topmargin_30">
+                            <div class="inline-content">
+                                <div class="media small-media inline-block">
+                                    <div class="media-left"> <i class="fa fa-calendar cons-width highlight" aria-hidden="true"></i> </div>
+                                    <div class="media-body"> 11/08/2017 </div>
+                                </div>
+                                <div class="media small-media inline-block">
+                                    <div class="media-left"> <i class="fa fa-clock-o cons-width highlight" aria-hidden="true"></i> </div>
+                                    <div class="media-body"> 05:00 PM </div>
+                                </div>
+                            </div>
+                            <div class="media small-media margin_0">
+                                <div class="media-left"> <i class="fa fa-map-marker cons-width highlight" aria-hidden="true"></i> </div>
+                                <div class="media-body"> Square Hilbrow, Milan, Italy. </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- .item-content -->
+                </article>
+               
+                <div class="row columns_padding_5 page-nav">
+                    <div class="col-md-6">
+                        <div class="prev-item with_padding text-center ds bg_teaser after_cover darkgrey_bg"> <img src="{% static 'images/gallery/01.jpg' %}" alt="">
+                            <div>
+                                <div class="highlight small-text"> Prev </div>
+                                <h4 class="entry-title"> Doner cow swine tail meat ball pig shank filet </h4>
+                            </div>
+                            <!-- eof .item-content -->
+                            <div class="media-links"> <a href="#" class="abs-link"></a> </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="next-item with_padding text-center ds bg_teaser after_cover darkgrey_bg"> <img src="{% static 'images/gallery/06.jpg' %}" alt="">
+                            <div class="item-content">
+                                <div class="highlight small-text"> Next </div>
+                                <h4 class="entry-title"> <a href="blog-single-right.html" rel="bookmark">capicola shoulder tongue hamburger. Kielbasa</a> </h4>
+                            </div>
+                            <!-- eof .item-content -->
+                            <div class="media-links"> <a href="#" class="abs-link"></a> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--eof .col-sm-8 (main content)-->
+            <!-- sidebar -->
+            <aside class="col-sm-5 col-md-4 col-lg-4">
+                <div class="widget widget_recent_posts">
+                    <h3 class="widget-title">Recent Posts</h3>
+                    <ul class="media-list">
+                        {%for article in articles%}
+                        <li class="media loop-color">
+                            <div class="media-left media-middle"> <img src="{{article.image.url}}" alt="" /> </div>
+                            <div class="media-body media-middle">
+                                <h4 class="entry-title"> <a href="{% url 'articles' article.id %}">{{article.title}}</a> </h4>
+                                <div class="small-text no-spacing highlightlinks hover-color2"> <a href="{% url 'articles' article.id %}">
+                        <time datetime="2017-10-03T08:50:40+00:00">
+                            21/09/2017
+                        </time>
+                    </a> </div>
+                            </div>
+                        </li>
+                        {%endfor%}
+                       
+                    </ul>
+                </div>
+                 <div class="widget widget_mailchimp">
+                    <h3 class="widget-title">Newsletter</h3>
+                    <form class="signup" action="http://webdesign-finder.com/html/dj/" method="get">
+                        <div class="form-group-wrap">
+                            <div class="form-group"> <label for="mailchimp-aside" class="sr-only">Enter your email here</label> <input name="email" type="email" id="mailchimp-aside" class="mailchimp_email form-control" placeholder="E-mail Address"> </div> <button type="submit" class="theme_button color1 no_bg_button">Subscribe</button>                                       </div>
+                        <p>Enter Email here to be updated. We promise not to send you spam!</p>
+                        <div class="response"></div>
+                    </form>
+                </div>
+
+                <div class="widget widget_apsc_widget">
+
+                    <h3 class="widget-title">Get In Touch</h3>
+                    <div class="apsc-icons-wrapper clearfix apsc-theme-4">
+                        <div class="apsc-each-profile">
+                            <a class="apsc-facebook-icon clearfix" href="#">
+                                <div class="apsc-inner-block"> <span class="social-icon">
+            <i class="fa fa-facebook apsc-facebook"></i>
+            <span class="media-name">Facebook</span> </span> <span class="apsc-count">9.8K</span><span class="apsc-media-type">Fans</span> </div>
+                            </a>
+                        </div>
+                        <div class="apsc-each-profile">
+                            <a class="apsc-twitter-icon clearfix" href="#">
+                                <div class="apsc-inner-block"> <span class="social-icon">
+            <i class="fa fa-twitter apsc-twitter"></i>
+            <span class="media-name">Twitter</span> </span> <span class="apsc-count">4.9K</span><span class="apsc-media-type">Followers</span> </div>
+                            </a>
+                        </div>
+                        <div class="apsc-each-profile">
+                            <a class="apsc-google-plus-icon clearfix" href="#">
+                                <div class="apsc-inner-block"> <span class="social-icon">
+            <i class="apsc-googlePlus fa fa-google-plus"></i>
+            <span class="media-name">google+</span> </span> <span class="apsc-count">10.1M</span><span class="apsc-media-type">Followers</span> </div>
+                            </a>
+                        </div>
+                        <div class="apsc-each-profile">
+                            <a class="apsc-instagram-icon clearfix" href="#">
+                                <div class="apsc-inner-block"> <span class="social-icon">
+            <i class="apsc-instagram fa fa-instagram"></i>
+            <span class="media-name">Instagram</span> </span> <span class="apsc-count">4</span><span class="apsc-media-type">Followers</span> </div>
+                            </a>
+                        </div>
+                        <div class="apsc-each-profile">
+                            <a class="apsc-youtube-icon clearfix" href="#">
+                                <div class="apsc-inner-block"> <span class="social-icon">
+            <i class="apsc-youtube fa fa-youtube"></i>
+            <span class="media-name">Youtube</span> </span> <span class="apsc-count">2.2K</span><span class="apsc-media-type">Subscriber</span> </div>
+                            </a>
+                        </div>
+                     
+                      
+                       
+                    </div>
+                </div>
+
+               
+               
+                
+                
+            </aside>
+            <!-- eof aside sidebar -->
         </div>
-        <div class="col-md-5">
-            <h1 class="text-center">{{events.name}}</h1>
-            {% autoescape on %} {{events.about| safe}} {% endautoescape %}
-            <h5>Show starts at: {{events.eventtime}} </h5>
-
-        </div>
-
     </div>
-
-</div>
+</section>
 
 {% endblock %}

@@ -59,7 +59,10 @@ def articles(request, article_id):
 
 def shows(request, events_id):
     events = Events.objects.get(pk=events_id)
-    return render(request, "all/shows.html", {"events": events})
+    bTitle = events.name
+    link = events.name
+    articles = Articles.objects.all()[0:4]
+    return render(request, "all/shows.html", {"events": events,'bTitle':bTitle,'link':link,'articles':articles})
 
 
 def search_results(request):
