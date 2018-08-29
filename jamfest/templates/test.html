@@ -559,7 +559,10 @@
 							<div class="owl-carousel topmargin_60" data-responsive-lg="3" data-dots="true">
 								{% for article in articles %}
 									<article class="vertical-item content-padding with_background rounded overflow_hidden text-center">
-									<div class="item-media top_rounded overflow_hidden"> <img src="{{article.image.url}}" alt="">
+									<div class="item-media top_rounded overflow_hidden">
+										<div class="embed-responsive embed-responsive-3by2">
+											<img src="{{article.image.url}}" alt="">
+										</div>
 										<div class="media-links"> <a href="{%url 'articles' article.id %}" class="abs-link"></a> </div>
 									</div>
 									<div class="item-content">
@@ -594,8 +597,7 @@
 								</article>
 
 								{% endfor %}
-								
-
+					
 							</div>
 						</div>
 					</div>
