@@ -95,8 +95,11 @@ def all_shows_list(request):
     '''
     view function to display all the shows for jamhuri events
     '''
+    bTitle = 'Jamhuri Events'
+    link = 'Events'
     events = Events.objects.all()
-    return render(request, 'all/show_list.html', {"events": events})
+    articles = Articles.objects.all()[0:4]
+    return render(request, 'all/show_list.html', {"events": events,'bTitle':bTitle,'link':link,'articles':articles})
 
 def all_articles_list(request):
     '''

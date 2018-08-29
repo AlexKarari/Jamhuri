@@ -24,7 +24,7 @@
 								<li> <a href="/test#featured-video">Featured</a> </li>
 								<li> <a href="#latest-album">Latest</a> </li>
 								<li class="{% if request.path == '/photos/' %}active{%else%}{%endif%}"> <a href="{% url 'photos' %}">Photos</a> </li>
-								<li> <a href="#gigs">Gigs</a> </li>
+								<li class="{% if request.path == '/all_shows/' %}active{%else%}{%endif%}"> <a href="{% url 'all_shows' %}">Gigs</a> </li>
 								<li class="{% if request.path == '/all_articles/' %}active{%else%}{%endif%}"> <a href="{% url 'all_articles' %}">News</a> </li>
 							{% endif %}
 							
