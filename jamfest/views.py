@@ -12,7 +12,7 @@ def index(request):
     Most content here acts as links to the main content.
     '''
     events = Events.objects.all()[0:3]
-    article = Articles.objects.all()[0:3]
+    articles = Articles.objects.all()[0:3]
     testimonials = Testimonials.objects.all()
     service = Services.objects.all()
     if request.method == 'POST':
@@ -25,7 +25,7 @@ def index(request):
             HttpResponseRedirect('landingpage')
     else:
         form = NewsLetterForm()
-    return render(request, 'all/index.html', {"events": events, "article": article, "testimonials": testimonials, "service": service, "letterForm": form})
+    return render(request, 'all/index.html', {"events": events, "articles": articles, "testimonials": testimonials, "service": service, "letterForm": form})
 
 
 def all_artists(request):
