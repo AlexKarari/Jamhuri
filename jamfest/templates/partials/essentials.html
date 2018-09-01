@@ -8,7 +8,7 @@
 		</span>
 	</button>
 		<div class="widget widget_search">
-			<form method="get" class="searchform search-form form-inline" action="http://webdesign-finder.com/html/dj/">
+			<form method="POST" class="searchform search-form form-inline" action="{% url 'search_results' %}">
 				<div class="form-group bottommargin_0"> <input type="text" value="" name="search" class="form-control" placeholder="Search keyword" id="modal-search-input"> </div> <button type="submit" class="theme_button no_bg_button">Search</button> </form>
 		</div>
 	</div>

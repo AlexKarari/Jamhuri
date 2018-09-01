@@ -11,8 +11,13 @@
 				    href="#" title="Twitter"></a> <a class="social-icon socicon-youtube" href="#" title="Youtube"></a> </div>
 			<div class="col-md-4 col-sm-12 text-center text-md-right">
 				<div class="widget widget_search">
-					<form method="get" class="searchform" action="http://webdesign-finder.com/html/dj/">
-						<div class="form-group margin_0"> <label class="sr-only" for="widget-search-topline">Search for:</label> <input id="widget-search-topline" type="text" value="" name="search" class="form-control" placeholder="Search Keyword"> </div> <button type="submit" class="theme_button no_bg_button color1">Search</button>									</form>
+					<form method="POST" class="searchform" action="{% url 'search_results' %}">
+						<div class="form-group margin_0">
+							<label class="sr-only" for="widget-search-topline">Search for:</label>
+							<input id="widget-search-topline" type="text" value="" name="artist" class="form-control" placeholder="Search Keyword">
+						</div>
+						<button type="submit" class="theme_button no_bg_button color1">Search</button>
+					</form>
 				</div>
 			</div>
 		</div>

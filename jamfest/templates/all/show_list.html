@@ -22,11 +22,11 @@
 										<div class="content-justify">
 											<div class="media small-media inline-block margin_0">
 												<div class="media-left"> <i class="fa fa-calendar cons-width highlight" aria-hidden="true"></i> </div>
-												<div class="media-body"> 13/09/2017 </div>
+												<div class="media-body">{{event.eventtime|date:"d/m/Y"}}  </div>
 											</div>
 											<div class="media small-media inline-block margin_0">
 												<div class="media-left"> <i class="fa fa-clock-o cons-width highlight" aria-hidden="true"></i> </div>
-												<div class="media-body"> 05:00 PM </div>
+												<div class="media-body"> {{event.eventtime|time:"h:i A"}}</div>
 											</div>
 										</div>
 										<div class="media small-media margin_0">
@@ -72,7 +72,7 @@
 								<div class="small-text no-spacing highlightlinks hover-color2">
 									<a href="{% url 'articles' article.id %}">
 										<time datetime="2017-10-03T08:50:40+00:00">
-											21/09/2017
+											{{article.postDate|date:"d/m/Y"}}
 										</time>
 									</a> 
 								</div>
