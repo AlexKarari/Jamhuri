@@ -54,15 +54,17 @@ def articles(request, article_id):
         raise Http404()
     bTitle = article.title
     link = article.title
+    link1 = 'Blog'
     articles = Articles.objects.all()[0:4]
-    return render(request, "all/articles.html", {"article": article,'bTitle':bTitle,'link':link,'articles':articles})
+    return render(request, "all/articles.html", {"article": article,'bTitle':bTitle,'link':link,'articles':articles,'link1':link1})
 
 def shows(request, events_id):
     events = Events.objects.get(pk=events_id)
     bTitle = events.name
     link = events.name
+    link1 = 'Events'
     articles = Articles.objects.all()[0:4]
-    return render(request, "all/shows.html", {"events": events,'bTitle':bTitle,'link':link,'articles':articles})
+    return render(request, "all/shows.html", {"events": events,'bTitle':bTitle,'link':link,'articles':articles,'link1':link1})
 
 
 def search_results(request):

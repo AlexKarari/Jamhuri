@@ -352,7 +352,11 @@
                     <div class="owl-carousel topmargin_60" data-dots="false" data-nav="true" data-responsive-lg="3">
                         {% for events in events %}
                         <div class="vertical-item content-absolute hover-entry-content">
-                            <div class="item-media top_rounded overflow_hidden"> <img src="{{events.poster.url}}" alt=""> </div>
+                            <div class="item-media top_rounded overflow_hidden">
+                                
+                                    <img src="{{events.poster.url}}" alt="">
+                                
+                            </div>
                             <div class="item-content ds">
                                 <h4 class="entry-title bottommargin_0"> <a href="{%url 'shows' events.id %}">{{events.name|upper}}</a> </h4>
                                 <div class="media small-media small-text grey inline-block margin_0 hover-hidden">

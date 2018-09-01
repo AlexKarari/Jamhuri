@@ -6,9 +6,11 @@
 			</div>
 		</div>
 		<ol class="breadcrumb bottom_breadcrumbs">
-			<li> <a href="index.html">Home</a> 
+			<li> <a href="/">Home</a> 
 			</li>
-			<li> <a href="#">Features</a> </li>
+			{% if link1 %}
+			<li> <a href="#">{{link1}}</a> </li>
+			{%else%}{%endif%}
 			<li class="active">{{link}}</li>
 		</ol>
 	</div>
