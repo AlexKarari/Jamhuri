@@ -11,8 +11,8 @@ def index(request):
     View function that displays the homepage and all its contents.
     Most content here acts as links to the main content.
     '''
-    events = Events.objects.all()[0:3]
-    articles = Articles.objects.all()[0:3]
+    events = Events.objects.order_by('eventtime')[0:3]
+    articles = Articles.objects.order_by('-postDate')[0:3]
     testimonials = Testimonials.objects.all()
     service = Services.objects.all()
     if request.method == 'POST':
@@ -34,7 +34,7 @@ def all_artists(request):
     '''
     bTitle = 'jamhuri Artists'
     link = 'Artists'
-    artists = Artist.objects.all()
+    artists = Artist.objects.order_by('name')
     artist_filter = ArtistFilter(request.GET, queryset=artists)
     return render(request, 'all/allartists.html', {"artists": artists, "artist_filter": artist_filter,'bTitle':bTitle,'link':link})
 
@@ -45,7 +45,8 @@ def single_artist(request, artist_id):
     
     artists = Artist.objects.get(pk=artist_id)
     link = artists.name
-    return render(request, "all/single_artist.html", {"artists": artists,'bTitle':bTitle,'link':link})
+    link1 = 'Artists'
+    return render(request, "all/single_artist.html", {"artists": artists,'bTitle':bTitle,'link':link,'link1':link1})
 
 def articles(request, article_id):
     try:
@@ -55,7 +56,7 @@ def articles(request, article_id):
     bTitle = article.title
     link = article.title
     link1 = 'Blog'
-    articles = Articles.objects.all()[0:4]
+    articles = Articles.objects.order_by('-postDate')[0:4]
     return render(request, "all/articles.html", {"article": article,'bTitle':bTitle,'link':link,'articles':articles,'link1':link1})
 
 def shows(request, events_id):
@@ -63,7 +64,7 @@ def shows(request, events_id):
     bTitle = events.name
     link = events.name
     link1 = 'Events'
-    articles = Articles.objects.all()[0:4]
+    articles = Articles.objects.order_by('-postDate')[0:4]
     return render(request, "all/shows.html", {"events": events,'bTitle':bTitle,'link':link,'articles':articles,'link1':link1})
 
 
@@ -102,8 +103,8 @@ def all_shows_list(request):
     '''
     bTitle = 'Jamhuri Events'
     link = 'Events'
-    events = Events.objects.all()
-    articles = Articles.objects.all()[0:4]
+    events = Events.objects.order_by('eventtime')
+    articles = Articles.objects.order_by('-postDate')[0:4]
     return render(request, 'all/show_list.html', {"events": events,'bTitle':bTitle,'link':link,'articles':articles})
 
 def all_articles_list(request):
@@ -112,7 +113,7 @@ def all_articles_list(request):
     '''
     bTitle = 'Jamhuri Blog'
     link = 'Blog'
-    article = Articles.objects.all()
+    article = Articles.objects.order_by('-postDate')
     return render(request, 'all/articles_list.html', {"article": article,'link':link,'bTitle':bTitle})
 
 def photos(request):
