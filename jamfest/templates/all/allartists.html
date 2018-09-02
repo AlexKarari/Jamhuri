@@ -3,12 +3,68 @@
 {% block content %}
 {% include 'partials/breadcrumb.html' %}
 {% load static %}
-<section class="ls page_portfolio section_padding_top_150 section_padding_bottom_130">
+<section style="padding-left:40px" class="ls page_portfolio section_padding_top_20 section_padding_left_120 section_padding_bottom_80">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="isotope_container isotope row masonry-layout columns_margin_bottom_20">
+
+                    <form method="get">
+
+                        <h4>Artist Search Criteria</h4>
+                        <div class="row container">
+                            <div class="form-group col-sm-4 col-md-3">
+                                {{ artist_filter.form.event.label_tag }}
+                               
+                                {% for choice in artist_filter.form.event %}
+                                <div class="checkbox">
+                                     {{ choice.tag}} {{ choice.choice_label}}
+
+                                </div>
+                                {% endfor %}
+                                
+                            </div>
+                            <div class="form-group col-sm-4 col-md-3">
+                                {{ artist_filter.form.talent.label_tag }}
+                                
+                                    {% for choice in artist_filter.form.talent %}
+                                    <div class="checkbox">
+                                        {{ choice.tag|title }} {{ choice.choice_label|title }}
+                                    </div>
+                                    {% endfor %}
+                                
+                            </div>
+                            <div class="form-group col-sm-4 col-md-3">
+                                {{ artist_filter.form.genre.label_tag }}
+                                
+                                    {% for choice in artist_filter.form.genre %}
+                                    <div class="checkbox">
+                                        {{ choice.tag }} {{ choice.choice_label }}
+                                    </div>
+                                    {% endfor %}
+                                
+                            </div>
+                           
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fab fa-searchengin"></i> Search
+                        </button>
+                       
+                    </form>
+                </div>
+        </div>
+        </div>
+        
+    </div>
+</section>
+
+<section class="ls page_portfolio section_padding_top_80 section_padding_bottom_130">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="isotope_container isotope row masonry-layout columns_margin_bottom_20">
-                                {% for artists in artists %}
+
+                                {% for artists in artist_filter.qs %}
                                     <div class="isotope-item col-lg-4 col-md-6 col-sm-6">
                                         <div class="vertical-item content-padding with_background bottom_color_border rounded text-center">
                                             <div class="item-media"> <img src="{{artists.avatar.url}}" alt=""> </div>
