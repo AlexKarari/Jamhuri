@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'capstone.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'jamfest',
+        'NAME': 'jamhuri',
         'USER': 'alexander',
     'PASSWORD':'lazypass',
     }

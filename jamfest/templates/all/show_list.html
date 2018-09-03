@@ -1,9 +1,149 @@
-{%extends 'all/base.html'%} 
+{%extends 'layouts/base.html'%} 
 {% block content %} 
+{% include 'partials/breadcrumb.html' %}
 {% load static %}
-<div class="container">
-    {% for events in events %}
-    <img src="{{events.poster.url}}" class="img-fluid" alt="Poster" style="width: 600px; height: 620px;">
-    {% endfor %}
-</div>
+<section class="ls section_padding_top_15 section_padding_bottom_130 columns_padding_25">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-7 col-md-8 col-lg-8">
+				{% for event in events %}
+				<article class="post side-item side-md content-padding with_background rounded">
+					<div class="row">
+						<div class="col-md-5">
+							<div class="item-media top_rounded overflow_hidden"> <img src="{{event.poster.url}}" alt="">
+								<div class="media-links"> <a class="abs-link" title="" href="{%url 'shows' event.id %}"></a> </div>
+							</div>
+						</div>
+						<div class="col-md-7">
+							<div class="item-content">
+								<header class="entry-header">
+									<h4 class="entry-title"> <a href="{%url 'shows' event.id %}">{{event.name}}</a> </h4>
+									<div class="entry-meta small-text text-left">
+										<div class="content-justify">
+											<div class="media small-media inline-block margin_0">
+												<div class="media-left"> <i class="fa fa-calendar cons-width highlight" aria-hidden="true"></i> </div>
+												<div class="media-body">{{event.eventtime|date:"d/m/Y"}}  </div>
+											</div>
+											<div class="media small-media inline-block margin_0">
+												<div class="media-left"> <i class="fa fa-clock-o cons-width highlight" aria-hidden="true"></i> </div>
+												<div class="media-body"> {{event.eventtime|time:"h:i A"}}</div>
+											</div>
+										</div>
+										<div class="media small-media margin_0">
+											<div class="media-left"> <i class="fa fa-map-marker cons-width highlight" aria-hidden="true"></i> </div>
+											<div class="media-body"> Square Hilbrow, Milan, Italy. </div>
+										</div>
+									</div>
+								</header>
+								<p>{{event.about}}</p>
+							</div>
+						</div>
+					</div>
+				</article>
+				{%endfor%}
+				
+			
+				<div class="row topmargin_60">
+					<div class="col-sm-12 text-center">
+						<ul class="pagination">
+							<li><a href="#"><span class="sr-only">Prev</span><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+							<li class="active"><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">5</a></li>
+							<li><a href="#"><span class="sr-only">Next</span><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!--eof .col-sm-8 (main content)-->
+			<!-- sidebar -->
+			<aside class="col-sm-5 col-md-4 col-lg-4">
+				
+				<div class="widget widget_recent_posts">
+					<h3 class="widget-title">Recent Posts</h3>
+					<ul class="media-list">
+						{% for article in articles %}
+						<li class="media loop-color">
+							<div class="media-left media-middle"> <img src="{{article.image.url}}" alt="" /> </div>
+							<div class="media-body media-middle">
+								<h4 class="entry-title"> <a href="{% url 'articles' article.id %}">{{article.title}}</a> </h4>
+								<div class="small-text no-spacing highlightlinks hover-color2">
+									<a href="{% url 'articles' article.id %}">
+										<time datetime="2017-10-03T08:50:40+00:00">
+											{{article.postDate|date:"d/m/Y"}}
+										</time>
+									</a> 
+								</div>
+							</div>
+						</li>
+						{% endfor %}
+					
+					</ul>
+				</div>
+
+				<div class="widget widget_mailchimp">
+					<h3 class="widget-title">Newsletter</h3>
+					<form class="signup" action="http://webdesign-finder.com/html/dj/" method="get">
+						<div class="form-group-wrap">
+							<div class="form-group"> <label for="mailchimp-aside" class="sr-only">Enter your email here</label> <input name="email" type="email" id="mailchimp-aside" class="mailchimp_email form-control" placeholder="E-mail Address"> </div> <button type="submit" class="theme_button color1 no_bg_button">Subscribe</button>										</div>
+						<p>Enter Email here to be updated. We promise not to send you spam!</p>
+						<div class="response"></div>
+					</form>
+				</div>
+
+				<div class="widget widget_apsc_widget">
+					<h3 class="widget-title">Get In Touch</h3>
+					<div class="apsc-icons-wrapper clearfix apsc-theme-4">
+						<div class="apsc-each-profile">
+							<a class="apsc-facebook-icon clearfix" href="#">
+								<div class="apsc-inner-block"> <span class="social-icon">
+							<i class="fa fa-facebook apsc-facebook"></i>
+							<span class="media-name">Facebook</span> </span> <span class="apsc-count">9.8K</span><span class="apsc-media-type">Fans</span> </div>
+							</a>
+						</div>
+						<div class="apsc-each-profile">
+							<a class="apsc-twitter-icon clearfix" href="#">
+								<div class="apsc-inner-block"> <span class="social-icon">
+								<i class="fa fa-twitter apsc-twitter"></i>
+								<span class="media-name">Twitter</span> </span> <span class="apsc-count">4.9K</span><span class="apsc-media-type">Followers</span> </div>
+							</a>
+						</div>
+						<div class="apsc-each-profile">
+							<a class="apsc-google-plus-icon clearfix" href="#">
+								<div class="apsc-inner-block"> <span class="social-icon">
+								<i class="apsc-googlePlus fa fa-google-plus"></i>
+								<span class="media-name">google+</span> </span> <span class="apsc-count">10.1M</span><span class="apsc-media-type">Followers</span> </div>
+							</a>
+						</div>
+						<div class="apsc-each-profile">
+							<a class="apsc-instagram-icon clearfix" href="#">
+								<div class="apsc-inner-block"> <span class="social-icon">
+								<i class="apsc-instagram fa fa-instagram"></i>
+								<span class="media-name">Instagram</span> </span> <span class="apsc-count">4</span><span class="apsc-media-type">Followers</span> </div>
+							</a>
+						</div>
+						<div class="apsc-each-profile">
+							<a class="apsc-youtube-icon clearfix" href="#">
+								<div class="apsc-inner-block">
+									<span class="social-icon">
+										<i class="apsc-youtube fa fa-youtube"></i>
+										<span class="media-name">Youtube</span>
+									</span> 
+									<span class="apsc-count">2.2K</span>
+									<span class="apsc-media-type">Subscriber</span>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+								
+				
+				
+			</aside>
+			<!-- eof aside sidebar -->
+		</div>
+	</div>
+</section>
 {% endblock %}

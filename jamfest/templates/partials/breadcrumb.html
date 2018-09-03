@@ -1,0 +1,17 @@
+<section class="page_breadcrumbs ds color parallax section_padding_25">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 text-center text-md-left">
+				<h2>{{bTitle}}</h2>
+			</div>
+		</div>
+		<ol class="breadcrumb bottom_breadcrumbs">
+			<li> <a href="/">Home</a> 
+			</li>
+			{% if link1 %}
+			<li> <a href="#">{{link1}}</a> </li>
+			{%else%}{%endif%}
+			<li class="active">{{link}}</li>
+		</ol>
+	</div>
+</section>

@@ -3,19 +3,19 @@ from django.db import models
 
 # Create your models here.
 class Type_of_Event(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.TextField()
     
     def __str__(self):
         return self.title
 
 class Talent(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.TextField()
     
     def __str__(self):
         return self.title
 
 class Genre(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.TextField()
 
     def __str__(self):
         return self.title
@@ -23,7 +23,7 @@ class Genre(models.Model):
 class Artist(models.Model):
     name = models.CharField(max_length=100)
     avatar = models.ImageField(upload_to='profilepic/')
-    bio = models.TextField()
+    bio = models.CharField(max_length = 2000)
     price = models.IntegerField(blank=True, null=True)
     genre = models.ManyToManyField(Genre, blank=True)
     event = models.ManyToManyField(Type_of_Event, blank=True)
@@ -39,21 +39,27 @@ class Artist(models.Model):
 
 class Events(models.Model):
     name = models.CharField(max_length=100)
-    about = models.TextField()
+    about = models.CharField(max_length = 2000)
     poster = models.ImageField(upload_to='poster/')
+<<<<<<< HEAD
     eventtime = models.CharField(max_length=100)
     date = models.CharField(max_length=50, null=True)
     venue = models.CharField(max_length=60, null=True)
     entryfee = models.CharField(max_length=100, blank=True)
+=======
+    eventtime = models.DateTimeField(max_length=100)
+    location = models.CharField(max_length = 100,null = True)
+    price = models.IntegerField(blank=True, null= True)
+>>>>>>> 660fe00a2fb008308c4ee3268464c29fad156284
     
     def __str__(self):
         return self.name
 
 class Articles(models.Model):
     title = models.CharField(max_length=100)
-    post = models.TextField()
+    post = models.TextField(max_length = 2000)
     image = models.ImageField(upload_to='newsimages/', blank=True)
-    postDate = models.DateTimeField(auto_now_add=True)
+    postDate = models.DateField(auto_now_add=True)
     
     def __str__(self):
         return self.title

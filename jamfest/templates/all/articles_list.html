@@ -1,20 +1,62 @@
-{%extends 'all/base.html'%} 
-{% block content %} 
+{%extends 'layouts/base.html'%} 
+{% block content %}
+{% include 'partials/breadcrumb.html' %} 
 {% load static %}
-<div class="container">
-    
+
+<section class="ls section_padding_top_150 section_padding_bottom_130">
     <div class="container">
         <div class="row">
-            {% for article in article %}
-            <div class="col-md-4">
-                <img class="card-img-top img-fluid" src="{{article.image.url}}" alt="News images" style="height:291px; width:auto">
-                <h5 style="text-align: left; text-indent: inherit">
-                    <a href="{%url 'articles' article.id %}">{{article.title|upper}}</a>
-                </h5>
+            <div class="col-sm-12">
+                <div class="isotope_container isotope row masonry-layout columns_margin_bottom_20">
+                    {% for article in article %}  
+                    <div class="isotope-item col-lg-4 col-md-6 col-sm-12">
+                        <article class="vertical-item content-padding with_background rounded overflow_hidden text-center">
+                            <div class="item-media top_rounded overflow_hidden">
+                                <div class="embed-responsive embed-responsive-3by2">
+                                    <img src="{{article.image.url}}" alt="">
+                                </div>
+                            </div>
+                            <div class="item-content">
+                                <header class="entry-header">
+                                    <h4 class="entry-title"> <a href="{%url 'articles' article.id %}">{{article.title}}</a> </h4>
+                                </header>
+                            </div>
+                            <footer class="entry-meta entry-footer small-text greylinks bottom_color_border">
+                                <div class="inline-content"> 
+                                    <a href="#0">
+                                        <i class="fa fa-user rightpadding_5" aria-hidden="true"></i>
+                                        <span>Admin</span>
+                                    </a>
+                                    <a href="#0">
+                                        <i class="fa fa-comment rightpadding_5" aria-hidden="true"></i>
+                                        <span class="value">1263</span>
+                                    </a>
+                                    <span>
+                                        <i class="fa fa-eye rightpadding_5" aria-hidden="true"></i>
+                                        <span class="value">3698</span>
+                                    </span>
+                                </div>
+                            </footer>
+                        </article>
+                    </div>
+                    {% endfor %}
+                </div>
+                <!-- eof .isotope_container.row -->
+                <div class="row topmargin_30">
+                    <div class="col-sm-12 text-center">
+                        <ul class="pagination">
+                            <li><a href="#"><span class="sr-only">Prev</span><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#"><span class="sr-only">Next</span><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            {% endfor %}
         </div>
     </div>
-    
-</div>
+</section>
 {% endblock %}
