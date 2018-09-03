@@ -42,6 +42,9 @@ class Events(models.Model):
     about = models.TextField()
     poster = models.ImageField(upload_to='poster/')
     eventtime = models.CharField(max_length=100)
+    date = models.CharField(max_length=50, null=True)
+    venue = models.CharField(max_length=60, null=True)
+    entryfee = models.CharField(max_length=100, blank=True)
     
     def __str__(self):
         return self.name

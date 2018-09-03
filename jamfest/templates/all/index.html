@@ -49,32 +49,21 @@
     </div>
 </section>
 <section class="events">
-    <div class="container">
         <hr>
         <h4 style="text-align: center; text-align: center; color: indigo">UPCOMING SHOWS</h4>
         <div class="row">
-        {% for events in events %}
-        <div class="col-md-4">
-            <div class="card-deck" style="width: 330px; height: 480px;">
-                <div class="card">
-                    <img class="card-img-top img-fluid" src="{{events.poster.url}}" alt="Card image cap" style="height:291px; width:330px">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <a href="{%url 'shows' events.id %}">{{events.name|upper}}</a>
-                        </h5> 
-                        <p class="card-text">{{events.about|truncatewords:10}}</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">{{events.eventtime}}</small>
-                    </div>
-                </div>
+            {% for events in events %}
+            <div class="col-md-3">
+                <img class="img-fluid" src="{{events.poster.url}}" alt="Event Poster" style="height:291px; width:auto">
+                <h5 style="text-align: left; text-indent: inherit">
+                    <a href="{%url 'shows' events.id %}">{{events.name|upper}}</a>
+                </h5> 
+                <p class="card-text">{{events.about|truncatewords:10}}</p>
             </div>
-        </div>
-        {% endfor %}
+            {% endfor %}
         </div>
         <br>
         <a href="{%url 'all_shows' %}"><button class="button button4">VIEW ALL SHOWS</button></a>
-    </div>
 </section>
 <section class="Articles">
     <div class="container">
@@ -96,47 +85,6 @@
         <a href="{%url 'all_articles' %}"><button class="button button4">MORE ARTICLES</button></a>
     </div>
 </section>
-<!-- <section class="services">
-    <div class="container">
-        <hr>
-        <h4 style="text-align: center; color: indigo">OUR SERVICES</h4>
-        <div class="row">
-            {% for service in service %}
-            <div class="col-md-4">
-                <div class="card-deck">
-                    <div class="card">
-                        <img class="card-img-top img-fluid rounded" src="{{service.image.url}}" alt="News images" alt="Our services" style="height:291px; width:auto">
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-</section>
-<section class="merchandise">
-    <div class="container">
-        <hr>
-        <h4 style="text-align: center; text-align: center; color: indigo">FEATURED MERCHANDISES</h4>
-        <div class="row">
-            {% for merchs in merchs %}
-            <div class="col-md-4">
-                <div class="card-deck">
-                    <div class="card">
-                        <img class="card-img-top img-fluid" src="{{merchs.item_image.url}}" alt="Card image cap" style="height:291px; width:auto">
-                        <div class="card-body">
-                            <h5 class="card-title">{{merchs.item_name|upper}}</h5>
-                            <p class="card-text">{{merchs.item_description}}</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">{{merchs.item_price}}</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-</section> -->
 <section class="testimonials">
     <div class="container">
         <hr>
@@ -178,14 +126,13 @@
                 <br>
                 <h6 style="color: white; text-align: center">
                     Jamhuri Events
-                    <br>
-                    P.O Box, 941-00515 Nairobi, Kenya
+                                  
                     <br>
                     <i class="fas fa-phone"></i> (+254)731671678
                     <br>
-                    <i class="far fa-envelope"></i> info@jamhurifestival.com 
+                    <i class="far fa-envelope"></i> info@jamhurievents.com 
                     <br>
-                    www.jamhurifestival.com
+                    www.jamhurievents.com
                 </h6>
             </div>
 

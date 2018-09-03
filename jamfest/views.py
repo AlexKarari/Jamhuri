@@ -3,6 +3,8 @@ from .models import Artist, Events, Articles, Releases, Merchandise, Testimonial
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from .filters import ArtistFilter
 from .forms import NewsLetterForm
+from .email import send_welcome_email
+
 
 # Create your views here.
 
@@ -11,7 +13,7 @@ def index(request):
     View function that displays the homepage and all its contents.
     Most content here acts as links to the main content.
     '''
-    events = Events.objects.all()[0:3]
+    events = Events.objects.all()[0:4]
     article = Articles.objects.all()[0:3]
     testimonials = Testimonials.objects.all()
     service = Services.objects.all()
@@ -22,6 +24,7 @@ def index(request):
             email = form.cleaned_data['email']
             recipient = NewsLetterRecipients(name=name, email=email)
             recipient.save()
+            send_welcome_email(name, email)
             HttpResponseRedirect('landingpage')
     else:
         form = NewsLetterForm()
