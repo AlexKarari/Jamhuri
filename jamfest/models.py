@@ -41,16 +41,9 @@ class Events(models.Model):
     name = models.CharField(max_length=100)
     about = models.CharField(max_length = 2000)
     poster = models.ImageField(upload_to='poster/')
-<<<<<<< HEAD
-    eventtime = models.CharField(max_length=100)
-    date = models.CharField(max_length=50, null=True)
-    venue = models.CharField(max_length=60, null=True)
-    entryfee = models.CharField(max_length=100, blank=True)
-=======
     eventtime = models.DateTimeField(max_length=100)
     location = models.CharField(max_length = 100,null = True)
     price = models.IntegerField(blank=True, null= True)
->>>>>>> 660fe00a2fb008308c4ee3268464c29fad156284
     
     def __str__(self):
         return self.name
