@@ -14,15 +14,15 @@
 								<li class="active"> <a href="#canvas">Home</a></li>
 								<li> <a href="#about">About</a> </li>
 								<li> <a href="#featured-video">Featured</a> </li>
-								<li> <a href="#latest-album">Latest</a> </li>
+								<!-- <li> <a href="#latest-album">Latest</a> </li> -->
 								<li> <a href="#gallery">Photos</a> </li>
 								<li> <a href="#gigs">Gigs</a> </li>
 								<li> <a href="#news">News</a> </li>
 							{% else %}
 								<li class="{% if request.path == '/' %}active{%else%}{%endif%}"> <a href="{% url 'landingpage' %}">Home</a></li>
 								<li class="{% if request.path == '/about/' %}active{%else%}{%endif%}" ><a href="{% url 'about_us' %}">About</a> </li>
-								<li> <a href="/test#featured-video">Featured</a> </li>
-								<li> <a href="#latest-album">Latest</a> </li>
+								<li> <a href="/#featured-video">Featured</a> </li>
+								<!-- <li> <a href="#latest-album">Latest</a> </li> -->
 								<li class="{% if request.path == '/photos/' %}active{%else%}{%endif%}"> <a href="{% url 'photos' %}">Photos</a> </li>
 								<li class="{% if request.path == '/all_shows/' %}active{%else%}{%endif%}"> <a href="{% url 'all_shows' %}">Gigs</a> </li>
 								<li class="{% if request.path == '/all_articles/' %}active{%else%}{%endif%}"> <a href="{% url 'all_articles' %}">News</a> </li>
