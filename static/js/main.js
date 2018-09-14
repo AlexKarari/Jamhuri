@@ -540,41 +540,41 @@ function windowLoadInit() {
 		jQuery('#search_modal').modal('show').find('input').first().focus();
 	});
 	//search form processing
-	jQuery('form.searchform').on('submit', function( e ){
+	// jQuery('form.searchform').on('submit', function( e ){
 		
-		e.preventDefault();
-		var $form = jQuery(this);
-		var $searchModal = jQuery('#search_modal');
-		$searchModal.find('div.searchform-respond').remove();
+	// 	e.preventDefault();
+	// 	var $form = jQuery(this);
+	// 	var $searchModal = jQuery('#search_modal');
+	// 	$searchModal.find('div.searchform-respond').remove();
 
-		//checking on empty values
-		jQuery($form).find('[type="text"]').each(function(index) {
-			var $thisField = jQuery(this);
-			if (!$thisField.val().length) {
-				$thisField
-					.addClass('invalid')
-					.on('focus', function(){
-						$thisField.removeClass('invalid')
-					});
-			}
-		});
-		//if one of form fields is empty - exit
-		if ($form.find('[type="text"]').hasClass('invalid')) {
-			return;
-		}
+	// 	//checking on empty values
+	// 	jQuery($form).find('[type="text"]').each(function(index) {
+	// 		var $thisField = jQuery(this);
+	// 		if (!$thisField.val().length) {
+	// 			$thisField
+	// 				.addClass('invalid')
+	// 				.on('focus', function(){
+	// 					$thisField.removeClass('invalid')
+	// 				});
+	// 		}
+	// 	});
+	// 	//if one of form fields is empty - exit
+	// 	if ($form.find('[type="text"]').hasClass('invalid')) {
+	// 		return;
+	// 	}
 
-		$searchModal.modal('show');
-		//sending form data to PHP server if fields are not empty
-		var request = $form.serialize();
-		var ajax = jQuery.post( "search.php", request )
-		.done(function( data ) {
-			$searchModal.append('<div class="searchform-respond">'+data+'</div>');
-		})
-		.fail(function( data ) {
-			$searchModal.append('<div class="searchform-respond">Search cannot be done. You need PHP server to search.</div>');
+	// 	$searchModal.modal('show');
+	// 	//sending form data to PHP server if fields are not empty
+	// 	var request = $form.serialize();
+	// 	var ajax = jQuery.post( "search.php", request )
+	// 	.done(function( data ) {
+	// 		$searchModal.append('<div class="searchform-respond">'+data+'</div>');
+	// 	})
+	// 	.fail(function( data ) {
+	// 		$searchModal.append('<div class="searchform-respond">Search cannot be done. You need PHP server to search.</div>');
 			
-		})
-	});
+	// 	})
+	// });
 
 	//MailChimp subscribe form processing
 	jQuery('.signup').on('submit', function( e ) {
