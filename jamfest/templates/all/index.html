@@ -340,7 +340,7 @@
                             </div>
                         </div>
                       
-
+                    <div class="topmargin_35 text-center"> <a href="{% url 'photos' %}" class="theme_button color1">Photo Gallery</a> </div>
                     </div>
                 </div>
             </section>
@@ -382,10 +382,11 @@
                                             <div class="media-body"> {{events.location}} </div>
                                         </div>
                                     </div>
-                                    <div class="topmargin_20"> <a href="#" class="theme_button inverse">Buy Tickets</a> </div>
+                                    <!-- <div class="topmargin_20"> <a href="#" class="theme_button inverse">Buy Tickets</a> </div> -->
                                 </div>
                             </div>
                         </div>
+
                         {% endfor %}
 
                         <div class="vertical-item content-absolute hover-entry-content">
@@ -419,6 +420,9 @@
                         </div>
                     
                     </div>
+
+                    <div class="topmargin_20"> <a href="{% url 'all_shows' %}" class="theme_button color1">More Gigs</a> </div>
+
                 </div>
             </div>
         </div>
@@ -480,12 +484,7 @@
                                         <div class="inline-content"> <a href="#0">
                                     <i class="fa fa-user rightpadding_5" aria-hidden="true"></i>
                                     <span>Admin</span>
-                                </a> <a href="#0">
-                                    <i class="fa fa-comment rightpadding_5" aria-hidden="true"></i>
-                                    <span class="value">1263</span>
-                                </a> <span>
-                                    <i class="fa fa-eye rightpadding_5" aria-hidden="true"></i>
-                                    <span class="value">3698</span> </span>
+                                </a> 
                                         </div>
                                     </footer>
                                 </article>
@@ -493,6 +492,9 @@
                                 {% endfor %}
                     
                             </div>
+
+                            <div class="topmargin_20"> <a href="{% url 'all_articles' %}" class="theme_button color1">More Posts</a> </div>
+
                         </div>
                     </div>
                 </div>
