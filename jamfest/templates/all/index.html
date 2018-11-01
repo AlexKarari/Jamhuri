@@ -7,8 +7,10 @@
             <section id="about" class="ls section_padding_top_40 section_padding_bottom_40 table_section table_section_md columns_margin_bottom_30">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-6 col-md-push-6 text-center"> <img src="{% static 'images/about.png' %}" alt=""> </div>
-                        <div class="col-md-6 col-md-pull-6">
+                        <!-- <div class="col-md-6 col-md-push-6 text-center"> 
+                            <img src="{% static 'images/about.png' %}" alt=""> 
+                        </div> -->
+                        <div class="col-md-6">
                             <h6 class="highlight">about us</h6>
                             <h2 class="section_header">Info/Bio</h2>
                              <p class="fontsize_20">Jamhuri Events is an innovative production company providing dynamic event solutions, digital marketing strategies and a talent resource bank in East Africa.
@@ -409,7 +411,7 @@
             <div class="row">
                 <div class="col-sm-12 text-center">
                     <h6 class="highlight">Concerts</h6>
-                    <h2 class="section_header">Upcoming Gigs</h2>
+                    <h2 class="section_header">Scheduled Gigs</h2>
                     <div class="owl-carousel topmargin_60" data-dots="false" data-nav="true" data-responsive-lg="3">
                         {% for events in events %}
                         <div class="vertical-item content-absolute hover-entry-content">
@@ -511,8 +513,9 @@
                                     <div class="item-content">
                                         <header class="entry-header">
                                             <div class="entry-meta small-text content-justify"> <span class="categories-links highlightlinks">
-                                        <a href="#0">Life</a>
-                                    </span> <span class="greylinks">
+                        
+                                    </span> 
+                                    <span class="greylinks">
                                         <a href="{%url 'articles' article.id %}">
                                             <time datetime="2017-10-03T08:50:40+00:00">
                                                 {{article.postDate|date:"d/m/Y"}}
@@ -525,13 +528,7 @@
                                             <p>{{article.post|truncatewords:15}}</p>
                                         </div>
                                     </div>
-                                    <footer class="entry-meta entry-footer small-text greylinks bottom_color_border">
-                                        <div class="inline-content"> <a href="#0">
-                                    <i class="fa fa-user rightpadding_5" aria-hidden="true"></i>
-                                    <span>Admin</span>
-                                </a> 
-                                        </div>
-                                    </footer>
+
                                 </article>
 
                                 {% endfor %}
