@@ -127,22 +127,35 @@ def photos(request):
     link = 'photos'
     return render(request, 'all/photos.html', {'link':link,'bTitle':bTitle})
 
-def test(request):
-    '''
-    This view function will render a test page
-    '''
-    events = Events.objects.all()[0:3]
-    articles = Articles.objects.all()[0:3]
-    testimonials = Testimonials.objects.all()
-    service = Services.objects.all()
-    if request.method == 'POST':
-        form = NewsLetterForm(request.POST)
-        if form.is_valid():
-            name = form.cleaned_data['your_name']
-            email = form.cleaned_data['email']
-            recipient = NewsLetterRecipients(name=name, email=email)
-            recipient.save()
-            HttpResponseRedirect('landingpage')
-    else:
-        form = NewsLetterForm()
-    return render(request, 'test.html', {"events": events, "articles": articles, "testimonials": testimonials, "service": service, "letterForm": form})
+# def test(request):
+#     '''
+#     This view function will render a test page
+#     '''
+#     events = Events.objects.all()[0:3]
+#     articles = Articles.objects.all()[0:3]
+#     testimonials = Testimonials.objects.all()
+#     service = Services.objects.all()
+#     if request.method == 'POST':
+#         form = NewsLetterForm(request.POST)
+#         if form.is_valid():
+#             name = form.cleaned_data['your_name']
+#             email = form.cleaned_data['email']
+#             recipient = NewsLetterRecipients(name=name, email=email)
+#             recipient.save()
+#             HttpResponseRedirect('landingpage')
+#     else:
+#         form = NewsLetterForm()
+#     return render(request, 'test.html', {"events": events, "articles": articles, "testimonials": testimonials, "service": service, "letterForm": form})
+
+# def newsletter_subscription(request):
+#     if request.method == 'POST':
+#         form = NewsLetterForm(request.POST)
+#         if form.is_valid():
+#             name = form.cleaned_data['name']
+#             email = form.cleaned_data['email']
+#             recipient = NewsLetterRecipients(name=name, email=email)
+#             recipient.save()
+#             print('Your Email has already been added to the database')
+#         else:
+#             form = NewsLetterForm()
+#         return render(request, 'all/subscribe.html', {'form': form})

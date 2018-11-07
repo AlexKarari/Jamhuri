@@ -9740,7 +9740,7 @@ body.active-side-header.slide-right .page_header_side {
 /* template parallax sections */
 #featured-video.background_cover,
 .page_featured_video.background_cover {
-	background-image: url(../img/parallax/video.jpg);
+	background-image: url(../img/parallax/top.jpg);
 }
 
 #subscribe.parallax,
