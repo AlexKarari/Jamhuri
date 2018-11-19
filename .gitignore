@@ -3,3 +3,4 @@ virtual
 .env
 migrations/
 media/
+__pycache__/

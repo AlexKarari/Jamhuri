@@ -20,11 +20,13 @@ def index(request):
     if request.method == 'POST':
         form = NewsLetterForm(request.POST)
         if form.is_valid():
-            name = form.cleaned_data['your_name']
+            # name = form.cleaned_data['your_name']
+            name = 'Friend'
             email = form.cleaned_data['email']
             recipient = NewsLetterRecipients(name=name, email=email)
             recipient.save()
             send_welcome_email(name, email)
+            print(recipient)
             HttpResponseRedirect('landingpage')
     else:
         form = NewsLetterForm()
