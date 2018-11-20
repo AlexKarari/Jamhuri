@@ -20,11 +20,13 @@ def index(request):
     if request.method == 'POST':
         form = NewsLetterForm(request.POST)
         if form.is_valid():
-            name = form.cleaned_data['your_name']
+            # name = form.cleaned_data['your_name']
+            name = 'Friend'
             email = form.cleaned_data['email']
             recipient = NewsLetterRecipients(name=name, email=email)
             recipient.save()
             send_welcome_email(name, email)
+            print(recipient)
             HttpResponseRedirect('landingpage')
     else:
         form = NewsLetterForm()
@@ -119,6 +121,14 @@ def all_articles_list(request):
     article = Articles.objects.order_by('-postDate')
     return render(request, 'all/articles_list.html', {"article": article,'link':link,'bTitle':bTitle})
 
+def tickets(request):
+    '''
+    View function that displays the ticketing page for Jamhuri Festival 2018
+    '''
+    bTitle = 'Jamhuri Festival'
+    link = 'Jamhuri Festival 2018'
+    return render(request, 'all/tickets.html', {'link': link, 'bTitle': bTitle})
+
 def photos(request):
     '''
     This view function will render the gallery page.
@@ -127,22 +137,36 @@ def photos(request):
     link = 'photos'
     return render(request, 'all/photos.html', {'link':link,'bTitle':bTitle})
 
-def test(request):
-    '''
-    This view function will render a test page
-    '''
-    events = Events.objects.all()[0:3]
-    articles = Articles.objects.all()[0:3]
-    testimonials = Testimonials.objects.all()
-    service = Services.objects.all()
-    if request.method == 'POST':
-        form = NewsLetterForm(request.POST)
-        if form.is_valid():
-            name = form.cleaned_data['your_name']
-            email = form.cleaned_data['email']
-            recipient = NewsLetterRecipients(name=name, email=email)
-            recipient.save()
-            HttpResponseRedirect('landingpage')
-    else:
-        form = NewsLetterForm()
-    return render(request, 'test.html', {"events": events, "articles": articles, "testimonials": testimonials, "service": service, "letterForm": form})
+
+# def test(request):
+#     '''
+#     This view function will render a test page
+#     '''
+#     events = Events.objects.all()[0:3]
+#     articles = Articles.objects.all()[0:3]
+#     testimonials = Testimonials.objects.all()
+#     service = Services.objects.all()
+#     if request.method == 'POST':
+#         form = NewsLetterForm(request.POST)
+#         if form.is_valid():
+#             name = form.cleaned_data['your_name']
+#             email = form.cleaned_data['email']
+#             recipient = NewsLetterRecipients(name=name, email=email)
+#             recipient.save()
+#             HttpResponseRedirect('landingpage')
+#     else:
+#         form = NewsLetterForm()
+#     return render(request, 'test.html', {"events": events, "articles": articles, "testimonials": testimonials, "service": service, "letterForm": form})
+
+# def newsletter_subscription(request):
+#     if request.method == 'POST':
+#         form = NewsLetterForm(request.POST)
+#         if form.is_valid():
+#             name = form.cleaned_data['name']
+#             email = form.cleaned_data['email']
+#             recipient = NewsLetterRecipients(name=name, email=email)
+#             recipient.save()
+#             print('Your Email has already been added to the database')
+#         else:
+#             form = NewsLetterForm()
+#         return render(request, 'all/subscribe.html', {'form': form})

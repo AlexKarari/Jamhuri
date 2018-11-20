@@ -1,4 +1,4 @@
 Hey there {{name}}!
 
 Welcome to Jamhuri Events newsletter! We'll strive at not just keeping entertained but also briefing you on
-the most important information out there!
+the most important and relevant information out there!

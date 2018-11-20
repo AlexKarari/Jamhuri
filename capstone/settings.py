@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
+    'django.contrib.sites',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
@@ -43,8 +44,13 @@ INSTALLED_APPS = [
     'bootstrap4',
     'django_filters',
     'widget_tweaks',
-        
+    'newsletter',
+    'fluent_contents',
+    'fluent_contents.plugins.iframe',
+          
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -86,9 +92,10 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'jamfest',
         'USER': 'alexander',
-    'PASSWORD':'lazypass',
+        'PASSWORD': 'lazypass',
+        }
     }
-}
+
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
@@ -135,4 +142,9 @@ STATICFILES_STORAGE ='whitenoise.django.GzipManifestStaticFilesStorage'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-
+#EMAIL CONFIGURATIONS
+EMAIL_USE_TLS = config('EMAIL_USE_TLS')
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')

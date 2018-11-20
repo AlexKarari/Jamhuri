@@ -19,4 +19,5 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'', include('jamfest.urls')),
+    url(r'^newsletter/', include('newsletter.urls')),
 ]

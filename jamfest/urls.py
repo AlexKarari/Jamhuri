@@ -5,7 +5,6 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
-    url('^test$',views.test,name = 'test'),
     url('^$', views.index, name='landingpage'),
     url(r'^article/(\d+)/$', views.articles, name='articles'),
     url(r'^all_artists/$', views.all_artists, name='all_artists'),
@@ -15,7 +14,9 @@ urlpatterns = [
     url(r'^about/$', views.about, name='about_us'),
     url(r'^all_shows/$', views.all_shows_list, name='all_shows'),
     url(r'^all_articles/$', views.all_articles_list, name='all_articles'),
+    url(r'^tickets/$', views.tickets, name='festival'),
     url(r'^photos/$',views.photos,name = 'photos'),
+    # url(r'^newsletter/$', views.newsletter_subscription, name='news'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,

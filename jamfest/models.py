@@ -94,3 +94,14 @@ class Services(models.Model):
 class NewsLetterRecipients(models.Model):
     name = models.CharField(max_length=50)
     email = models.EmailField()
+    date_added = models.DateField(auto_now_add=True)
+            
+    def __str__(self):
+        return self.email
+
+    class Meta:
+        verbose_name = "NewsLetterRecipient"
+        verbose_name_plural = "NewsLetterRecipients"
+
+
+
