@@ -121,6 +121,14 @@ def all_articles_list(request):
     article = Articles.objects.order_by('-postDate')
     return render(request, 'all/articles_list.html', {"article": article,'link':link,'bTitle':bTitle})
 
+def tickets(request):
+    '''
+    View function that displays the ticketing page for Jamhuri Festival 2018
+    '''
+    bTitle = 'Jamhuri Festival'
+    link = 'Jamhuri Festival 2018'
+    return render(request, 'all/tickets.html', {'link': link, 'bTitle': bTitle})
+
 def photos(request):
     '''
     This view function will render the gallery page.
@@ -128,6 +136,7 @@ def photos(request):
     bTitle = 'Jamhuri Gallery'
     link = 'photos'
     return render(request, 'all/photos.html', {'link':link,'bTitle':bTitle})
+
 
 # def test(request):
 #     '''

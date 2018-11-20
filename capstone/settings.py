@@ -44,9 +44,12 @@ INSTALLED_APPS = [
     'bootstrap4',
     'django_filters',
     'widget_tweaks',
-    'newsletter'
-        
+    'newsletter',
+    'fluent_contents',
+    'fluent_contents.plugins.iframe',
+          
 ]
+
 SITE_ID = 1
 
 MIDDLEWARE = [
