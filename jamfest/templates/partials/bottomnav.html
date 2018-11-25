@@ -18,7 +18,7 @@
 								<!-- <li> <a href="#gallery">Photos</a> </li> -->
 								<li> <a href="#gigs">Gigs</a> </li>
 								<li> <a href="#news">News</a> </li>
-								<li> <a href="{% url 'festival' %}" target="_blank">Jamhuri Festival 2018</a> </li>
+								<li> <a href="{% url 'festival' %}" class="theme_button color1 min_width_button" target="_blank">Buy Ticket</a> </li>
 							{% else %}
 								<li class="{% if request.path == '/' %}active{%else%}{%endif%}"> <a href="{% url 'landingpage' %}">Home</a></li>
 								<li class="{% if request.path == '/about/' %}active{%else%}{%endif%}" ><a href="{% url 'about_us' %}">About</a> </li>
@@ -27,7 +27,7 @@
 								<!-- <li class="{% if request.path == '/photos/' %}active{%else%}{%endif%}"> <a href="{% url 'photos' %}">Photos</a> </li> -->
 								<li class="{% if request.path == '/all_shows/' %}active{%else%}{%endif%}"> <a href="{% url 'all_shows' %}">Gigs</a> </li>
 								<li class="{% if request.path == '/all_articles/' %}active{%else%}{%endif%}"> <a href="{% url 'all_articles' %}">News</a> </li>
-								<li class="{% if request.path == '/festival/' %}active{%else%}{%endif%}"> <a href="{% url 'festival' %}">Jamhuri Festival 2018</a>
+								<li class="{% if request.path == '/festival/' %}active{%else%}{%endif%}"> <a href="{% url 'festival' %}" class="theme_button color1 min_width_button">Buy Tickets</a>
 								</li>
 							{% endif %}
 							
@@ -41,3 +41,4 @@
 		</div>
 	</div>
 </header>
+
