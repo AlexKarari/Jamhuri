@@ -2,7 +2,7 @@
 <section class="intro_section page_mainslider ds">
 	<div class="flexslider" data-dots="true" data-nav="te">
 		<ul class="slides">
-			<li> <img src="{% static 'images/Webartwork1.jpg' %}" alt="">
+			<li> <img src="{% static 'images/Webartwork1.jpg' %}" alt="" class="img-fluid">
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-12 text-center">
@@ -16,10 +16,13 @@
 									</div>
 									<div class="intro-layer" data-animation="fadeInUp">
 										<p style ='padding-top: 250px' class="topmargin_25 inline-content vertical-margin">
+											<a href="{% url 'festival' %}" class="theme_button color1 max_width_button" target="_blank">
+												Buy Ticket
+											</a>
 											<a href="#about" class="theme_button inverse min_width_button">
 													About Us
 											</a>
-											<a href="{% url 'all_artists' %}" class="theme_button color1 min_width_button">
+											<a href="{% url 'all_artists' %}" class="theme_button inverse min_width_button">
 													Our Artists
 											</a>
 										</p>
@@ -35,7 +38,7 @@
 				</div>
 				<!-- eof .container -->
 			</li>
-			<li> <img src="{% static 'images/Webartwork2.jpg' %}" alt="">
+			<li> <img src="{% static 'images/Webartwork2.jpg' %}" alt="" class="img-fluid">
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-12 text-center">
@@ -48,11 +51,14 @@
 										<p></p>
 									</div>
 									<div class="intro-layer" data-animation="fadeInUp">
-										<p style = 'padding-top:250px' class="topmargin_25 inline-content vertical-margin">
+										<p style='padding-top: 250px' class="topmargin_25 inline-content vertical-margin">
+											<a href="{% url 'festival' %}" class="theme_button color1 max_width_button" target="_blank">
+												Buy Ticket
+											</a>
 											<a href="#about" class="theme_button inverse min_width_button">
 												About Us
 											</a>
-											<a href="{% url 'all_artists' %}" class="theme_button color1 min_width_button">
+											<a href="{% url 'all_artists' %}" class="theme_button inverse min_width_button">
 												Our Artists
 											</a>
 										</p>
@@ -68,7 +74,7 @@
 				</div>
 				<!-- eof .container -->
 			</li>
-			<li> <img src="{% static 'images/Webartwork3.jpg' %}" alt="">
+			<li> <img src="{% static 'images/Webartwork3.jpg' %}" alt="" class="img-fluid">
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-12 text-center">
@@ -81,12 +87,15 @@
 										<p></p>
 									</div>
 									<div class="intro-layer" data-animation="fadeInUp">
-										<p style = 'padding-top:250px' class="topmargin_25 inline-content vertical-margin">
-											<a href="#about" class="theme_button inverse min_width_button">
-												About Us
+										<p style ='padding-top: 250px' class="topmargin_25 inline-content vertical-margin">
+											<a href="{% url 'festival' %}" class="theme_button color1 max_width_button" target="_blank">
+												Buy Ticket
 											</a>
-											<a href="{% url 'all_artists' %}" class="theme_button color1 min_width_button">
-												Our Artists
+											<a href="#about" class="theme_button inverse min_width_button">
+													About Us
+											</a>
+											<a href="{% url 'all_artists' %}" class="theme_button inverse min_width_button">
+													Our Artists
 											</a>
 										</p>
 									</div>

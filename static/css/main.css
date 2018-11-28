@@ -2284,6 +2284,16 @@ a.inactive {
 	}
 }
 
+.max_width_button {
+	min-width: 320px;
+}
+
+@media (max-width: 2400px) {
+	.max_width_button {
+		min-width: 400px;
+	}
+}
+
 .no_bg_button {
 	background-color: transparent !important;
 	border-color: transparent;
