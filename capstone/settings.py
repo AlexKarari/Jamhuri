@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 import dj_database_url
+import cloudinary
 from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -48,8 +49,8 @@ INSTALLED_APPS = [
     'fluent_contents',
     'fluent_contents.plugins.iframe',
     'django_social_share',
-
-          
+    'cloudinary',
+              
 ]
 
 SITE_ID = 1
