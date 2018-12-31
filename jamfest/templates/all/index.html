@@ -2,7 +2,8 @@
 {%load static%}
 
 {% block content %}
-            {% include 'partials/slider.html' %}
+{% load cloudinary %}
+{% include 'partials/slider.html' %}
 
             <section id="about" class="ls section_padding_top_40 section_padding_bottom_40 table_section table_section_md columns_margin_bottom_30">
                 <div class="container">
@@ -108,9 +109,7 @@
                         {% for events in events %}
                         <div class="vertical-item content-absolute hover-entry-content">
                             <div class="item-media top_rounded overflow_hidden">
-                                
-                                    <img src="{{events.poster.url}}" alt="">
-                                
+                                    <img src="https://res.cloudinary.com/jamhurievents/image/upload/v1546253076/Jamhurievents%20Images/Time-Machine.jpg" alt="">                                
                             </div>
                             <div class="item-content ds">
                                 <h4 class="entry-title bottommargin_0"> <a href="{%url 'shows' events.id %}">{{events.name|upper}}</a> </h4>
@@ -143,9 +142,6 @@
                         {% endfor %}
                     
                     </div>
-                    <!-- <div>
-                        <a href="">JAMHURI FESTIVAL 2018 TICKETS</a>
-                    </div> -->
 
                     <div class="topmargin_20"> 
                         <a href="{% url 'all_shows' %}" class="theme_button color1">More Gigs</a> 

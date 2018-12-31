@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Artist, Events, Articles, Releases, Merchandise, Testimonials, Services, Type_of_Event, Talent, Genre, NewsLetterRecipients
+from .models import Artist, Articles, Releases, Merchandise, Testimonials, Services, Type_of_Event, Talent, Genre, NewsLetterRecipients,Events
 
 # Register your models here.
 
@@ -12,8 +12,8 @@ class NewsletterAdmin(admin.ModelAdmin):
     list_display = ('name','email','date_added')
 
 admin.site.register(Artist)
-admin.site.register(Events)
 admin.site.register(Articles)
+admin.site.register(Events)
 admin.site.register(Releases)
 admin.site.register(Merchandise)
 admin.site.register(Testimonials)
@@ -22,3 +22,4 @@ admin.site.register(Type_of_Event)
 admin.site.register(Talent)
 admin.site.register(Genre)
 admin.site.register(NewsLetterRecipients, NewsletterAdmin)
+
