@@ -1,5 +1,4 @@
 from django.db import models
-from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class Type_of_Event(models.Model):
@@ -40,8 +39,7 @@ class Artist(models.Model):
 class Events(models.Model):
     name = models.CharField(max_length=100)
     about = models.CharField(max_length = 2000)
-    poster = CloudinaryField('image')
-    caption = models.CharField(max_length=100, blank=True)
+    poster = models.ImageField(upload_to='poster/')
     eventtime = models.DateTimeField(max_length=100)
     location = models.CharField(max_length = 100,null = True)
     price = models.IntegerField(blank=True, null= True)

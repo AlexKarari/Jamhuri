@@ -1,8 +1,6 @@
 {%extends 'layouts/base.html'%} 
 {%load static%}
-
 {% block content %}
-{% load cloudinary %}
 {% include 'partials/slider.html' %}
 
             <section id="about" class="ls section_padding_top_40 section_padding_bottom_40 table_section table_section_md columns_margin_bottom_30">
@@ -34,7 +32,8 @@
             <section id="featured-video" class="ds background_cover section_padding_top_150 section_padding_bottom_150">
                 <div class="container">
                     <div class="row">
-                        <div class="col-sm-12 text-center"> <a href="https://www.youtube.com/watch?v=b8G5GZUuYoM" class="theme_button inverse round_button margin_0" data-gal="prettyPhoto[gal-video]">
+                        <div class="col-sm-12 text-center"> 
+                            <a href="https://www.youtube.com/watch?v=b8G5GZUuYoM" class="theme_button inverse round_button margin_0" data-gal="prettyPhoto[gal-video]">
                     <i class="fa fa-play" aria-hidden="true"></i>
                 </a>
                             <!-- <h5 class="highlight topmargin_40">New hot video!</h5> -->
@@ -109,7 +108,7 @@
                         {% for events in events %}
                         <div class="vertical-item content-absolute hover-entry-content">
                             <div class="item-media top_rounded overflow_hidden">
-                                    <img src="https://res.cloudinary.com/jamhurievents/image/upload/v1546253076/Jamhurievents%20Images/Time-Machine.jpg" alt="">                                
+                                    <img src="{{events.poster.url}}" alt="">
                             </div>
                             <div class="item-content ds">
                                 <h4 class="entry-title bottommargin_0"> <a href="{%url 'shows' events.id %}">{{events.name|upper}}</a> </h4>
