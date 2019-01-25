@@ -2,6 +2,7 @@
 {% load static %}
 {% block content %}
 {% include 'partials/breadcrumb.html' %}
+{% load social_share %}
 
 
 <section class="ls section_padding_top_150 section_padding_bottom_130 columns_padding_25">
@@ -40,12 +41,19 @@
                     </a>
                         
                             </div>
-                            <!-- <div> <span>Share:</span> <span>
-                        <a class="social-icon socicon-facebook" href="#" title="Facebook"></a>
-                        <a class="social-icon socicon-twitter" href="" title="Twitter"></a>
-                        <a class="social-icon socicon-google" href="#" title="Twitter"></a>
-                        <a class="social-icon socicon-youtube" href="#" title="Youtube"></a>
-                    </span> </div> -->
+                            <div> 
+                                <span>Share:</span> 
+                                <span>
+                                    {% post_to_facebook "https://www.facebook.com/" "Post to Facebook!" %}
+                                    {% post_to_twitter "Jamhuri's New Article: {{article.post}}. Read It Here!" "https://twitter.com/" "Post to Twitter" %}
+                                    <!-- <a class="social-icon socicon-facebook" href="https://www.facebook.com/" title="Facebook" target="_blank"></a> -->
+                                    <!-- <a class="social-icon socicon-twitter" href="https://twitter.com/" title="Twitter" target="_blank"></a> -->
+                                    <!-- {% post_to_linkedin object.title object_or_url "Post to LinkedIn" %} -->
+                                    <!-- {% send_email object.title "New Song: {{object.title}}. Check it out!" object_or_url "Share via email" %} -->
+                                    <a class="social-icon socicon-instagram" href="#" title="Instagram"></a>
+                                    <a class="social-icon socicon-youtube" href="#" title="Youtube"></a>
+                                </span> 
+                            </div>
                         </div>
                     </footer>
                 </article>
