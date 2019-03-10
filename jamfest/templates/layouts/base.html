@@ -14,6 +14,16 @@
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="shortcut icon" type="image/png" href="{% static 'images/jhead_new.png' %}" />
 	{% include "partials/sheets.html" %} 
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-135955020-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'UA-135955020-1');
+	</script>
+
 	
 </head>
 
